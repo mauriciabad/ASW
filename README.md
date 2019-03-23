@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ASW 2018-2019 Q2
 
-Things you may want to cover:
+Maurici Abad
 
-* Ruby version
+Sandra Flores
 
-* System dependencies
+Xavier Font
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Raimon Mercé
