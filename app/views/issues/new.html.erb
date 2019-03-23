@@ -29,7 +29,7 @@
         
         <div class="field">
             <%= form.label :kind %>
-            <%= form.text_field :kind, id: :issue_kind %>
+            <%= form.select :kind, bug: :bug, enhancement: :enhancement, proposal: :proposal, task: :task %>
         </div>
         
         <div class="field">

@@ -1344,3 +1344,332 @@ Processing by IssuesController#new as HTML
 Completed 200 OK in 16ms (Views: 15.6ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-23 21:17:07 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-23 21:17:22 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/issues" for 93.176.144.22 at 2019-03-23 21:17:29 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RbftyqeQyZc0EkNWV4LsibbW/YW3oc2k/TQ68SEXikHmojbDZPtF9hy9HdIN+aS+Ww5OS3fEUeampvujqnBw6Q==", "issue"=>{"title"=>"2", "description"=>"2", "priority"=>"2", "user_id"=>"2"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 19ms (Views: 14.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/issues" for 93.176.144.22 at 2019-03-23 21:17:34 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i81XfOnUyvf+boVn+Bxvk3WCaI6rcvtIJAPPta+M8Oco2Ix1Kr9GltbB2+OiZyekmFrbQGsXZwp/kQ7nJOsKTw==", "issue"=>{"title"=>"2", "description"=>"2", "priority"=>"2", "user_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "issues" ("title", "description", "priority", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "2"], ["description", "2"], ["priority", "2"], ["user_id", 1], ["created_at", "2019-03-23 21:17:34.255092"], ["updated_at", "2019-03-23 21:17:34.255092"]]
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://3669a7e7c2ad48b99b3f0a9a96e8c79a.vfs.cloud9.us-east-2.amazonaws.com/issues/5
+Completed 302 Found in 11ms (ActiveRecord: 5.9ms)
+
+
+Started GET "/issues/5" for 93.176.144.22 at 2019-03-23 21:17:34 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mIssue Load (0.1ms)[0m  [1m[34mSELECT  "issues".* FROM "issues" WHERE "issues"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering issues/show.html.erb within layouts/application
+  Rendered issues/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/issues" for 93.176.144.22 at 2019-03-23 21:17:37 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues"[0m
+  Rendered issues/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/issues/4" for 93.176.144.22 at 2019-03-23 21:17:44 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8Zu9PRVOhmw/dbY+pIz8YTfm9LbRemDRYpRufKGJ2pRSjmY01iUKDRfa6Lr+97RW2j5HeBEf/JM5Bq8uKu4gPA==", "id"=>"4"}
+  [1m[36mIssue Load (0.1ms)[0m  [1m[34mSELECT  "issues".* FROM "issues" WHERE "issues"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "issues" WHERE "issues"."id" = ?[0m  [["id", 4]]
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://3669a7e7c2ad48b99b3f0a9a96e8c79a.vfs.cloud9.us-east-2.amazonaws.com/issues
+Completed 302 Found in 10ms (ActiveRecord: 5.8ms)
+
+
+Started GET "/issues" for 93.176.144.22 at 2019-03-23 21:17:44 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues"[0m
+  Rendered issues/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-23 21:17:48 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 26ms (Views: 25.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-23 21:18:33 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/issues" for 93.176.144.22 at 2019-03-23 21:18:40 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HZs+Ux+ygZtfQGXyKKN6eF3Zq9V4LA3k3w5Z43iSOru+juVa3NkN+nfvO3Zy2DJPsAEYG7hJkaaEnJix8/XAEw==", "issue"=>{"title"=>"1", "description"=>"1", "priority"=>"1", "user_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "issues" ("title", "description", "priority", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "1"], ["description", "1"], ["priority", "1"], ["user_id", 1], ["created_at", "2019-03-23 21:18:40.018757"], ["updated_at", "2019-03-23 21:18:40.018757"]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://3669a7e7c2ad48b99b3f0a9a96e8c79a.vfs.cloud9.us-east-2.amazonaws.com/issues/6
+Completed 302 Found in 10ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/issues/6" for 93.176.144.22 at 2019-03-23 21:18:40 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mIssue Load (0.1ms)[0m  [1m[34mSELECT  "issues".* FROM "issues" WHERE "issues"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering issues/show.html.erb within layouts/application
+  Rendered issues/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 15ms (Views: 12.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/issues" for 93.176.144.22 at 2019-03-23 21:18:42 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues"[0m
+  Rendered issues/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/issues/5" for 93.176.144.22 at 2019-03-23 21:18:45 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bJE1JhhP0EqsriycfO11Priw5cR8dnVuM6Xfw32XFXXPhO4v2yRcK4QBchgmlj0JVWhWCrwT6SxoNx6R9vDv3Q==", "id"=>"5"}
+  [1m[36mIssue Load (0.1ms)[0m  [1m[34mSELECT  "issues".* FROM "issues" WHERE "issues"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "issues" WHERE "issues"."id" = ?[0m  [["id", 5]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://3669a7e7c2ad48b99b3f0a9a96e8c79a.vfs.cloud9.us-east-2.amazonaws.com/issues
+Completed 302 Found in 8ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/issues" for 93.176.144.22 at 2019-03-23 21:18:45 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues"[0m
+  Rendered issues/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/issues/6" for 93.176.144.22 at 2019-03-23 21:18:47 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"H9rxA8ZL82NDO7BX00QSPrrmEJ2c7Yt9A+Qp0rAAHXq8zyoKBSB/AmuU7tOJP1oJVz6jU1yIFz9YduiAO2fn0g==", "id"=>"6"}
+  [1m[36mIssue Load (0.1ms)[0m  [1m[34mSELECT  "issues".* FROM "issues" WHERE "issues"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "issues" WHERE "issues"."id" = ?[0m  [["id", 6]]
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://3669a7e7c2ad48b99b3f0a9a96e8c79a.vfs.cloud9.us-east-2.amazonaws.com/issues
+Completed 302 Found in 9ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/issues" for 93.176.144.22 at 2019-03-23 21:18:47 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues"[0m
+  Rendered issues/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-23 21:18:49 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-23 21:19:48 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 17ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-23 21:20:14 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (169.1ms)
+Completed 500 Internal Server Error in 172ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `bug' for #<#<Class:0x0000000002d4a3a8>:0x00007f68883d6c18>):
+    35:                 <option value="task">task</option>
+    36:             </select>
+    37:             <%= form.label :kind %>
+    38:             <%= form.select :kind, id: :issue_kind, bug: bug %>
+    39:         </div>
+    40:         
+    41:         <div class="field">
+  
+app/views/issues/new.html.erb:38:in `block in _app_views_issues_new_html_erb___3345832811804939146_70043469527980'
+app/views/issues/new.html.erb:1:in `_app_views_issues_new_html_erb___3345832811804939146_70043469527980'
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-23 21:20:23 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/issues" for 93.176.144.22 at 2019-03-23 21:20:32 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CrV8T60NXDEbUI6ojwtNZKm7MYoRrFQxwTr54c99ra+poKdGbmbQUDP/0CzVcAVTRGOCRNHJyHOaqDizRBpXBw==", "issue"=>{"title"=>"1", "description"=>"1", "kind"=>"bug", "priority"=>"1", "user_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "issues" ("title", "description", "kind", "priority", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "1"], ["description", "1"], ["kind", "bug"], ["priority", "1"], ["user_id", 1], ["created_at", "2019-03-23 21:20:32.286786"], ["updated_at", "2019-03-23 21:20:32.286786"]]
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://3669a7e7c2ad48b99b3f0a9a96e8c79a.vfs.cloud9.us-east-2.amazonaws.com/issues/7
+Completed 302 Found in 11ms (ActiveRecord: 5.8ms)
+
+
+Started GET "/issues/7" for 93.176.144.22 at 2019-03-23 21:20:32 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mIssue Load (0.1ms)[0m  [1m[34mSELECT  "issues".* FROM "issues" WHERE "issues"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering issues/show.html.erb within layouts/application
+  Rendered issues/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/issues" for 93.176.144.22 at 2019-03-23 21:20:34 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues"[0m
+  Rendered issues/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-23 21:21:08 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-23 21:21:20 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/issues" for 93.176.144.22 at 2019-03-23 21:21:27 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tov2A8qAA1w2pSFT4MAIOWH+imkuWR2iZRMsAkXKE6gVni0KCeuPPR4Kf9e6u0AOjCY5p+48geA+ge1Qzq3pAA==", "issue"=>{"title"=>"1", "description"=>"1", "kind"=>"proposal", "priority"=>"1", "user_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "issues" ("title", "description", "kind", "priority", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "1"], ["description", "1"], ["kind", "proposal"], ["priority", "1"], ["user_id", 1], ["created_at", "2019-03-23 21:21:27.154979"], ["updated_at", "2019-03-23 21:21:27.154979"]]
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://3669a7e7c2ad48b99b3f0a9a96e8c79a.vfs.cloud9.us-east-2.amazonaws.com/issues/8
+Completed 302 Found in 11ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/issues/8" for 93.176.144.22 at 2019-03-23 21:21:27 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mIssue Load (0.1ms)[0m  [1m[34mSELECT  "issues".* FROM "issues" WHERE "issues"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering issues/show.html.erb within layouts/application
+  Rendered issues/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/issues" for 93.176.144.22 at 2019-03-23 21:21:29 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues"[0m
+  Rendered issues/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-23 21:21:32 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-23 21:23:32 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/ec2-user/environment/ASW/app/views/issues/new.html.erb:32: syntax error, unexpected tSYMBEG, expecting do or '{' or '('
+...r.append=( form.custom-select :kind, bug: :bug, enhancement:...
+...                              ^):
+  
+app/views/issues/new.html.erb:32: syntax error, unexpected tSYMBEG, expecting do or '{' or '('
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-23 21:24:05 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 36ms (Views: 34.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-23 21:24:33 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 45ms (Views: 44.3ms | ActiveRecord: 0.0ms)
+
+
