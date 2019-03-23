@@ -419,3 +419,12 @@ Processing by IssuesController#index as HTML
 Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/" for 62.175.105.114 at 2019-03-23 16:53:43 +0000
+Cannot render console from 62.175.105.114! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues"[0m
+  Rendered issues/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.2ms)
+
+
