@@ -1,3 +1,27 @@
 // Place all the styles related to the Issues controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+input {
+    border-radius: 3px;
+    border:1px solid #989898;
+    padding: 7px; 
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+.btn-create {
+    background-color: #4CAF50; /* Green */
+    border-radius: 4px;
+    border:none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
