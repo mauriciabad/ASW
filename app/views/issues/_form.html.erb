@@ -10,8 +10,9 @@
       </ul>
     </div>
   <% end %>
-
-      <table style="width:200px">
+<div class="container" style="text-align:center">
+  
+      <table style="width:200px" align="center">
       <tr>
         <td><%= form.label :title %></td>
         <td><%= form.text_field :title, id: :issue_title %></td> 
@@ -33,10 +34,12 @@
         <td><%= form.number_field :user_id, id: :issue_user_id %></td>
       </tr>
   </table>
-
+  
   <div class="actions">
-            <button class="btn-neutral">
-                Update
-            </button>
-        </div>
+      <button class="btn-create">
+          Update
+      </button>
+  </div>
+  
+</div>
 <% end %>
