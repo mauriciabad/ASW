@@ -1,31 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-    <h1>Issue</h1>
-        
-    <p>
-      <strong>Title:</strong>
-      <%= @issue.title %>
-    </p>
-    
-    <p>
-      <strong>Description:</strong>
-      <%= @issue.description %>
-    </p>
-    
-    <p>
-      <strong>Kind:</strong>
-      <%= @issue.kind %>
-    </p>
-    
-    <p>
-      <strong>Priority:</strong>
-      <%= @issue.priority %>
-    </p>
-    
-    <p>
-      <strong>User:</strong>
-      <%= @issue.user_id %>
-    </p>
+    <h1><%= @issue.title %></h1>
+
+    <table style="width:200px">
+      <tr>
+        <td><strong>Title:</strong></td>
+        <td><%= @issue.title %></td> 
+      </tr>
+      <tr>
+        <td><strong>Description:</strong></td>
+        <td><%= @issue.description %></td>
+      </tr>
+      <tr>
+        <td><strong>Kind:</strong></td>
+        <td><%= @issue.kind %></td>
+      </tr>
+      <tr>
+        <td><strong>Priority:</strong></td>
+        <td><%= @issue.priority %></td>
+      </tr>
+      <tr>
+        <td><strong>User:</strong></td>
+        <td><%= @issue.user_id %></td>
+      </tr>
+  </table>
+
 
 <%= link_to 'Edit', edit_issue_path(@issue) %> |
 <%= link_to 'Back', issues_path %>
