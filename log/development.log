@@ -2874,3 +2874,68 @@ Processing by IssuesController#edit as HTML
 Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.1ms)
 
 
+Started GET "/issues" for 93.176.144.22 at 2019-03-27 23:08:25 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues"[0m
+  Rendered issues/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-27 23:08:28 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 25ms (Views: 24.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-27 23:09:31 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-27 23:10:10 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-27 23:10:29 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-27 23:11:17 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-27 23:12:26 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/issues/new" for 93.176.144.22 at 2019-03-27 23:12:45 +0000
+Cannot render console from 93.176.144.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  Rendered issues/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 25ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
