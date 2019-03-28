@@ -15,7 +15,7 @@
     <h1>Create issue</h1>
     
     <form method="post">
-        <div class="field" style="justify-content:space-between">
+        <div class="field" style="">
             <label for="inputTitle">
                 Title
             </label>
@@ -29,6 +29,12 @@
         
         <div class="field">
             <%= form.label :kind %>
+            <select id=":kind">
+                <option value=":bug">bug</option>
+                <option value=":enhancement">enhancement</option>
+                <option value=":proposal">proposal</option>
+                <option value=":task">task</option>
+            </select>
             <%= form.select :kind, bug: :bug, enhancement: :enhancement, proposal: :proposal, task: :task %>
         </div>
         
