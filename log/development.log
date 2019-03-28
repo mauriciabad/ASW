@@ -140,3 +140,12 @@ Processing by IssuesController#show as HTML
 Completed 200 OK in 341ms (Views: 337.7ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/issues" for 147.83.201.97 at 2019-03-28 16:19:41 +0000
+Cannot render console from 147.83.201.97! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues"[0m
+  Rendered issues/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 41ms (Views: 39.4ms | ActiveRecord: 0.2ms)
+
+
