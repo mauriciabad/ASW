@@ -6,6 +6,7 @@ class CreateIssues < ActiveRecord::Migration[5.1]
       t.string :kind
       t.string :priority
       t.integer :user_id
+      t.data :create_date
 
       t.timestamps
     end

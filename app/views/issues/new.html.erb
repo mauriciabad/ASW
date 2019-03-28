@@ -39,13 +39,18 @@
         </div>
         
         <div class="field">
+            <%= form.label :create_date %>
+            <%= form.text_field :priority, id: :issue_priority %>
+        </div>
+        
+         <div class="field">
             <%= form.label :priority %>
             <%= form.text_field :priority, id: :issue_priority %>
         </div>
         
         <div class="field">
             <%= form.label :user_id %>
-            <%= form.number_field :user_id, id: :issue_user_id %>
+            <%= form.text_field :user_id, id: :issue_user_id %>
         </div>
         
         <div class="actions">
