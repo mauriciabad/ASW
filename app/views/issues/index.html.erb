@@ -22,9 +22,14 @@
         <td><%= issue.kind %></td>
         <td><%= issue.priority %></td>
         <td><%= issue.user_id %></td>
-        <td><%= link_to 'Show', issue %></td>
-        <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
-        <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Show', issue %>
+           <%= link_to image_tag('pen_1.svg', size: '16'), edit_issue_path(issue) %>
+          
+        </td>
+        <td>
+          <%= link_to image_tag('delete_1.svg', size: '16'), issue, method: :delete, data: {confirm: 'Are you sure?'} %>
+        </td>
       </tr>
     <% end %>
   </tbody>
