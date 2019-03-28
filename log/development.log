@@ -1,43 +1,9 @@
-Started GET "/" for 147.83.201.98 at 2019-03-28 15:22:55 +0000
-Cannot render console from 147.83.201.98! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by IssuesController#index as HTML
-  Rendering issues/index.html.erb within layouts/application
-  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues"[0m
-  Rendered issues/index.html.erb within layouts/application (12.9ms)
-Completed 200 OK in 8867ms (Views: 8853.8ms | ActiveRecord: 0.8ms)
-
-
-Started GET "/" for 147.83.201.98 at 2019-03-28 15:23:05 +0000
-Cannot render console from 147.83.201.98! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
-Processing by IssuesController#index as HTML
-  Rendering issues/index.html.erb within layouts/application
-  [1m[36mIssue Load (0.1ms)[0m  [1m[34mSELECT "issues".* FROM "issues"[0m
-  Rendered issues/index.html.erb within layouts/application (3.1ms)
-Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.4ms)
-
-
-Started GET "/" for 147.83.201.97 at 2019-03-28 15:49:52 +0000
-Cannot render console from 147.83.201.97! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
-Processing by IssuesController#index as HTML
-  Rendering issues/index.html.erb within layouts/application
-  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues"[0m
-  Rendered issues/index.html.erb within layouts/application (3.4ms)
-Completed 200 OK in 31ms (Views: 30.4ms | ActiveRecord: 0.2ms)
-
-
-Started GET "/" for 147.83.201.97 at 2019-03-28 15:49:53 +0000
-Cannot render console from 147.83.201.97! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
-Processing by IssuesController#index as HTML
-  Rendering issues/index.html.erb within layouts/application
-  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues"[0m
-  Rendered issues/index.html.erb within layouts/application (2.7ms)
-Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.2ms)
-
-
-Started GET "/" for 147.83.201.97 at 2019-03-28 15:50:12 +0000
-Cannot render console from 147.83.201.97! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+<<<<<<< HEAD
 Processing by IssuesController#index as HTML
   Rendering issues/index.html.erb within layouts/application
   [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues"[0m
@@ -145,3 +111,5 @@ Migrating to CreateMicroposts (20190328163548)
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_microposts_on_user_id_and_created_at" ON "microposts" ("user_id", "created_at")[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_microposts_on_user_id_and_created_at" ON "microposts" ("user_id", "created_at")[0m
+=======
+>>>>>>> refs/remotes/origin/master
