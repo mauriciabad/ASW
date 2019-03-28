@@ -1,11 +1,7 @@
-# README
+# ASW 2018-2019 Q2
 
-ASW 2018-2019 Q2
-
-Maurici Abad
-
-Sandra Flores
-
-Xavier Font
-
-Raimon Mercé
+Authors:
+- Maurici Abad
+- Sandra Flores
+- Xavier Font
+- Raimon Mercé
