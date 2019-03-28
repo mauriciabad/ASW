@@ -17,13 +17,13 @@
   <tbody>
     <% @issues.each do |issue| %>
       <tr>
-        <td><%= issue.title %></td>
+        <td><%= link_to issue.title, issue %></td>
         <td><%= issue.description %></td>
         <td><%= issue.kind %></td>
         <td><%= issue.priority %></td>
         <td><%= issue.user_id %></td>
         <td>
-          <%= link_to 'Show', issue %>
+          
            <%= link_to image_tag('pen_1.svg', size: '16'), edit_issue_path(issue) %>
           
         </td>
