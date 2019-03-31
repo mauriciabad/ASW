@@ -17,14 +17,17 @@ ActiveRecord::Schema.define(version: 20190323162937) do
     t.string "description"
     t.string "kind"
     t.string "priority"
-    t.integer "user_id"
-    t.datetime "created_at" #, null: false
+    t.integer "creation_user"
+    t.integer "assigned_user"
+    t.integer "votes"
+    t.string "status"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.date "created_at" #, null: false
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 

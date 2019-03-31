@@ -2,27 +2,46 @@
 
 <h1>Issues</h1>
 
-<table>
+<br/>
+
+<div class="btn-group">
+  <span>Filter by:</span>
+  <button>All</button>
+  <button>Open</button>
+  <button>My issues</button>
+  <button>Watching</button>
+</div>
+
+<br/>
+
+<table style="width:100%;text-align:center">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Kind</th>
+      <th >Title</th>
+      <!--<th>Description</th>-->
+      <th>Type</th>
       <th>Priority</th>
+      <th>Status</th>
+      <th>Votes</th>
       <th>User</th>
+      <th>Created</th>
+      <th>Updated</th>
       <th colspan="2"></th>
     </tr>
   </thead>
-
+  
   <tbody>
     <% @issues.each do |issue| %>
       <tr>
         <td><%= link_to issue.title, issue %></td>
-        <td><%= issue.description %></td>
+        <!--<td><%= issue.description %></td>-->
         <td><%= issue.kind %></td>
         <td><%= issue.priority %></td>
+        <td>status</td>
+        <td>votes</td>
         <td><%= issue.user_id %></td>
         <td><%= issue.created_at %></td>
+        <td><%= issue.update_since %></td>
         <td><%= link_to image_tag('pen_1.svg', size: '16'), edit_issue_path(issue) %></td>
         <td><%= link_to image_tag('delete_1.svg', size: '16'), issue, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>

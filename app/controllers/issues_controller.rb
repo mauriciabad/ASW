@@ -5,6 +5,10 @@ class IssuesController < ApplicationController
   # GET /issues.json
   def index
     @issues = Issue.all
+    # @updatedAt = List.new
+    # @issues.each do |issue|
+    #   @updatecAt.
+    
   end
 
   # GET /issues/1
