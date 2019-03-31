@@ -4,12 +4,12 @@
 
 <br/>
 
-<div class="btn-group">
-  <span>Filter by:</span>
-  <button>All</button>
-  <button>Open</button>
-  <button>My issues</button>
-  <button>Watching</button>
+<div class="clearfix" id="issue-toolbar">
+  <span class="filter-label">Filter by:</span>
+  <a class="filter" href="">All</a>
+  <a class="filter" href="">Open</a>
+  <a class="filter" href="">My issues</a>
+  <a class="filter" href="">Watching</a>
 </div>
 
 <br/>
@@ -41,7 +41,8 @@
         <td>votes</td>
         <td><%= issue.user_id %></td>
         <td><%= issue.created_at %></td>
-        <td><%= issue.update_since %></td>
+        <td>caca</td>
+        <td><%= link_to image_tag('eye_1.svg', size: '16'), issue %></td>
         <td><%= link_to image_tag('pen_1.svg', size: '16'), edit_issue_path(issue) %></td>
         <td><%= link_to image_tag('delete_1.svg', size: '16'), issue, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
@@ -52,3 +53,4 @@
 <br>
 
 <%= link_to 'New Issue', new_issue_path %>
+

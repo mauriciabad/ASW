@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20190323162937) do
     t.string "description"
     t.string "kind"
     t.string "priority"
-    t.integer "creation_user"
+    t.integer "user_id"
     t.integer "assigned_user"
     t.integer "votes"
     t.string "status"
