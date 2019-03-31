@@ -22,7 +22,7 @@
         <td><%= issue.kind %></td>
         <td><%= issue.priority %></td>
         <td><%= issue.user_id %></td>
-        <td><%= issue.create_date %></td>
+        <td><%= issue.created_at %></td>
         <td><%= link_to image_tag('pen_1.svg', size: '16'), edit_issue_path(issue) %></td>
         <td><%= link_to image_tag('delete_1.svg', size: '16'), issue, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>

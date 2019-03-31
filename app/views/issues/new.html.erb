@@ -38,11 +38,6 @@
             <%= form.select :kind, bug: :bug, enhancement: :enhancement, proposal: :proposal, task: :task %>
         </div>
         
-        <div class="field">
-            <%= form.label :create_date %>
-            <%= form.text_field :priority, id: :issue_priority %>
-        </div>
-        
          <div class="field">
             <%= form.label :priority %>
             <%= form.text_field :priority, id: :issue_priority %>
