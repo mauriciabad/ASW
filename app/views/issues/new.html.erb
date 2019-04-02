@@ -15,11 +15,9 @@
     <h1>Create issue</h1>
     
     <form method="post">
-        <div class="field" style="">
-            <label for="inputTitle">
-                Title
-            </label>
-             <%= form.text_field :title, id: :issue_title %>
+        <div class="field row">
+            <%= form.label :title, class: "col-6" %>
+            <%= form.text_field :title, id: :issue_title, class: "col-6" %>
         </div>
           
         <div class="field">
@@ -47,14 +45,13 @@
             <%= form.label :user_id %>
             <%= form.text_field :user_id, id: :issue_user_id %>
         </div>
-        
+        <br/>
         <div class="actions">
             <button class="btn-create">
                 Create
             </button>
         </div>
     </form>
-    
     <div>
         <%= link_to 'Back', issues_path %>
     </div>

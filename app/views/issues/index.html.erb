@@ -1,32 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Issues</h1>
+<div class="header">
+  <h1>Issues</h1>
+  <%= link_to 'Create issue', new_issue_path, class: "button top-right" %>
+</div>
 
-<br/>
-
-<div class="clearfix" id="issue-toolbar">
+<div class="filter-container" id="issue-toolbar">
   <span class="filter-label">Filter by:</span>
-  <a class="filter" href="">All</a>
+  <a class="filter filter--active" href="">All</a>
   <a class="filter" href="">Open</a>
   <a class="filter" href="">My issues</a>
   <a class="filter" href="">Watching</a>
 </div>
 
-<br/>
+<h2>Issues (1–<%= @issues.size %> of <%= @issues.size %>)</h2>
 
-<table style="width:100%;text-align:center">
+<table>
   <thead>
     <tr>
       <th >Title</th>
       <!--<th>Description</th>-->
-      <th>Type</th>
-      <th>Priority</th>
+      <th title="Type">T</th>
+      <th title="Priority">P</th>
       <th>Status</th>
       <th>Votes</th>
       <th>User</th>
       <th>Created</th>
       <th>Updated</th>
-      <th colspan="2"></th>
     </tr>
   </thead>
   
@@ -35,22 +35,24 @@
       <tr>
         <td><%= link_to issue.title, issue %></td>
         <!--<td><%= issue.description %></td>-->
-        <td><%= issue.kind %></td>
-        <td><%= issue.priority %></td>
-        <td>status</td>
-        <td>votes</td>
+        <td>
+          <%= if issue.kind == 'bug' %>
+            <%= link_to image_tag('eye_1.svg'), issue, title: "Show" %>
+          <%= end %>
+        </td>
+        <td>
+          <%= issue.priority %>
+        </td>
+        <td></td>
+        <td></td>
         <td><%= issue.user_id %></td>
         <td><%= issue.created_at %></td>
-        <td>caca</td>
-        <td><%= link_to image_tag('eye_1.svg', size: '16'), issue %></td>
-        <td><%= link_to image_tag('pen_1.svg', size: '16'), edit_issue_path(issue) %></td>
-        <td><%= link_to image_tag('delete_1.svg', size: '16'), issue, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <td></td>
+        <td><%= link_to image_tag('eye_1.svg'), issue, title: "Show" %></td>
+        <td><%= link_to image_tag('pen_1.svg'), edit_issue_path(issue), title: "Edit" %></td>
+        <td><%= link_to image_tag('delete_1.svg'), issue, method: :delete, data: {confirm: 'Are you sure?'}, title: "Delete" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Issue', new_issue_path %>
 
