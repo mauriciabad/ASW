@@ -36,12 +36,35 @@
         <td><%= link_to issue.title, issue %></td>
         <!--<td><%= issue.description %></td>-->
         <td>
-          <%= if issue.kind == 'bug' %>
-            <%= link_to image_tag('eye_1.svg'), issue, title: "Show" %>
-          <%= end %>
+          <% if issue.kind == 'bug' %>
+            <%= link_to image_tag('bug.svg'), issue, title: "Show" %>
+          <% end %>
+          <% if issue.kind == 'enhancement' %>
+            <%= link_to image_tag('enhancement.svg'), issue, title: "Show" %>
+          <% end %>
+          <% if issue.kind == 'proposal' %>
+            <%= link_to image_tag('proposal.svg'), issue, title: "Show" %>
+          <% end %>
+          <% if issue.kind == 'task' %>
+            <%= link_to image_tag('task.svg'), issue, title: "Show" %>
+          <% end %>
         </td>
         <td>
-          <%= issue.priority %>
+          <% if issue.priority == 'minor' %>
+            <%= link_to image_tag('minor.svg'), issue, title: "Show" %>
+          <% end %>
+          <% if issue.priority == 'major' %>
+            <%= link_to image_tag('major.svg'), issue, title: "Show" %>
+          <% end %>
+          <% if issue.priority == 'trivial' %>
+            <%= link_to image_tag('trivial.svg'), issue, title: "Show" %>
+          <% end %>
+          <% if issue.priority == 'blocker' %>
+            <%= link_to image_tag('blocker.svg'), issue, title: "Show" %>
+          <% end %>
+          <% if issue.priority == 'critical' %>
+            <%= link_to image_tag('critical.svg'), issue, title: "Show" %>
+          <% end %>
         </td>
         <td></td>
         <td></td>
