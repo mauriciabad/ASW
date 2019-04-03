@@ -19,7 +19,6 @@
   <thead>
     <tr>
       <th >Title</th>
-      <!--<th>Description</th>-->
       <th title="Type">T</th>
       <th title="Priority">P</th>
       <th>Status</th>
@@ -34,7 +33,6 @@
     <% @issues.each do |issue| %>
       <tr>
         <td><%= link_to issue.title, issue %></td>
-        <!--<td><%= issue.description %></td>-->
         <td>
           <% if issue.kind == 'bug' %>
             <%= link_to image_tag('bug.svg'), issue, title: "Show" %>
@@ -66,12 +64,13 @@
             <%= link_to image_tag('critical.svg'), issue, title: "Show" %>
           <% end %>
         </td>
-        <td></td>
+        <td>
+          <%= issue.status %>
+        </td>
         <td></td>
         <td><%= issue.user_id %></td>
         <td><%= issue.created_at %></td>
         <td></td>
-        <td><%= link_to image_tag('eye_1.svg'), issue, title: "Show" %></td>
         <td><%= link_to image_tag('pen_1.svg'), edit_issue_path(issue), title: "Edit" %></td>
         <td><%= link_to image_tag('delete_1.svg'), issue, method: :delete, data: {confirm: 'Are you sure?'}, title: "Delete" %></td>
       </tr>

@@ -1,12 +1,90 @@
-<div class="container" style="text-align:center;margin-top:150px">
-   <h1>Editing Issue</h1>
+<%= form_with(model: @issue, local: true) do |form| %>
+  <% if @issue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
 
-    <%= render 'form', issue: @issue %>
+      <ul>
+      <% @issue.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="container" style="text-align:center;margin-top:150px">
+    <h1>Editing Issue</h1>
+      
+    <div class="control-group">
+        <div class="field">
+            <%= form.label :status %>
+            <%= form.select :status, open: :open, onhold: :onhold, inprogess: :inprogess, closed: :closed %>
+        </div>
+        </br>
+        <div>
+          <%= form.label :title %>
+          <%= form.label @issue.title %>
+        </div>
+        <div>
+          <%= form.label :description %>
+          <%= form.label @issue.description %>
+        </div>
+        <div>
+          <%= form.label :kind %>
+          <% if @issue.kind == 'bug' %>
+            <%= link_to image_tag('bug.svg', :width => '16')%>
+          <% end %>
+          <% if @issue.kind == 'enhancement' %>
+            <%= link_to image_tag('enhancement.svg', :width => '16') %>
+          <% end %>
+          <% if @issue.kind == 'proposal' %>
+            <%= link_to image_tag('proposal.svg', :width => '16') %>
+          <% end %>
+          <% if @issue.kind == 'task' %>
+            <%= link_to image_tag('task.svg', :width => '16') %>
+          <% end %>
+        </div>
+        <div>
+          <%= form.label :priority %>
+          <% if @issue.priority == 'minor' %>
+            <%= link_to image_tag('minor.svg', :width => '16')%>
+          <% end %>
+          <% if @issue.priority == 'major' %>
+            <%= link_to image_tag('major.svg', :width => '16') %>
+          <% end %>
+          <% if @issue.priority == 'trivial' %>
+            <%= link_to image_tag('trivial.svg', :width => '16') %>
+          <% end %>
+          <% if @issue.priority == 'blocker' %>
+            <%= link_to image_tag('blocker.svg', :width => '16')%>
+          <% end %>
+          <% if @issue.priority == 'critical' %>
+            <%= link_to image_tag('critical.svg', :width => '16') %>
+          <% end %>
+        </div>
+        <div>
+          <%= form.label :user_id %>
+          <%= form.label @issue.user_id %>
+        </div>
+        
+        <div class="actions">
+            <button class="btn-create">
+              Update
+            </button>
+        </div>
+    </div>
+
     
-    
+
     <%= link_to 'Show', @issue %> |
     <%= link_to 'Back', issues_path %>
     
+    
+  
 </div>
+    
+    
+    
 
+<% end %>
 
