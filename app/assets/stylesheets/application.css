@@ -67,6 +67,13 @@ th:hover{
 tr:hover{
   background: #f5f5f5;
 }
+thead .no-visible{
+  visibility: hidden;
+}
+thead .img-col{
+  width: 1em;
+  text-align: center;
+}
 table img{
   opacity: 0.6667;
   transition: opacity 100ms ease-out, transform 100ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
