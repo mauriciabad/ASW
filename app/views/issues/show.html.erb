@@ -21,9 +21,10 @@
       <span class="label">User</span>
       <span><%= @issue.user_id %></span>
   </div>
-  
-  <%= link_to 'Edit', edit_issue_path(@issue) %> |
-  <%= link_to 'Back', issues_path %>
+  <div class="actions">
+    <%= link_to 'Edit', edit_issue_path(@issue), class:"btn-create" %>
+    <%= link_to 'Back', issues_path, class:"btn-back" %>
+  </div>
 
   <% @comments.where(issue_id: @issue.id).find_each do |comment| %>
     <p style="font-size: 14px ; color: #0052CC; font-weight: bold;"><%= @users.find(comment.user_id).name %></p>

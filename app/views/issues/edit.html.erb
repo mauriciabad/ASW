@@ -68,23 +68,11 @@
         </div>
         
         <div class="actions">
-            <button class="btn-create">
-              Update
-            </button>
+            <button class="btn-create">Update</button>
+            <%= link_to 'Back', issues_path, class: "btn-back" %>
         </div>
     </div>
-
-    
-
-    <%= link_to 'Show', @issue %> |
-    <%= link_to 'Back', issues_path %>
-    
-    
-  
 </div>
     
-    
-    
-
 <% end %>
 

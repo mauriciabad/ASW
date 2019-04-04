@@ -138,3 +138,53 @@ input, textarea, select {
 .select-new{
   width: 100%;
 }
+
+.grid{
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-gap: 1em;
+  max-width: 20em;
+  margin: 0 auto;
+  align-items: start;
+  justify-items: stretch;
+}
+.grid label, .grid .label{
+  text-align: right;
+}
+.label{
+  font-weight: bold;
+}
+
+.actions{
+  text-align: right;
+  max-width: 20em;
+  margin: 0 auto;
+}
+.actions .btn-create{
+  color: #505F79;
+  background: #F4F5F7;
+  border: none;
+  outline: 0;
+  line-height: 1.57142857em;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  margin: 0;
+  padding: 4px 10px;
+  text-decoration: none;
+  white-space: nowrap;
+    
+  color: #FFF;
+  background: #0052CC;
+  transition: background .1s ease-out,box-shadow .15s cubic-bezier(.47,.03,.49,1.38);
+  font-weight: 400;
+}
+.actions .btn-back{
+  color: #0052CC;
+  text-decoration: none;
+  padding: 4px 8px;
+}
+.actions .btn-back:hover{
+  text-decoration: underline;
+}

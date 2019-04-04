@@ -26,21 +26,6 @@
 }
 
 
-.grid{
-  display: grid;
-  grid-template-columns: min-content 1fr;
-  grid-gap: 1em;
-  max-width: 20em;
-  margin: 0 auto;
-  align-items: start;
-  justify-items: stretch;
-}
-.grid label, .grid .label{
-  text-align: right;
-}
-.label{
-  font-weight: bold;
-}
 
 
 
