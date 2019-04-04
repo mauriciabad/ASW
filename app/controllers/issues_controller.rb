@@ -14,6 +14,8 @@ class IssuesController < ApplicationController
   # GET /issues/1
   # GET /issues/1.json
   def show
+    @comments = Comment.all
+    @users = User.all
   end
 
   # GET /issues/new
