@@ -24,6 +24,15 @@ main{
   max-width: 1000px;
   margin: 0 auto;
 }
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  text-align: center;
+  padding: 0.5em;
+}
 h1{
     font-size: 1.71428571em;
     font-style: inherit;
@@ -180,11 +189,18 @@ input, textarea, select {
   transition: background .1s ease-out,box-shadow .15s cubic-bezier(.47,.03,.49,1.38);
   font-weight: 400;
 }
-.actions .btn-back{
+.btn-back{
   color: #0052CC;
   text-decoration: none;
   padding: 4px 8px;
 }
-.actions .btn-back:hover{
+.btn-back:hover{
   text-decoration: underline;
+}
+.login-big{
+  font-size: 2em;
+  text-align: center; 
+  padding: 40vh 0; 
+  color: #0052CC;
+  display: block;
 }
