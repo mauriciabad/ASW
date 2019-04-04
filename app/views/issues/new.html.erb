@@ -15,35 +15,25 @@
     <h1>Create issue</h1>
     
     <form method="post">
-        <div class="field row">
-            <%= form.label :title, class: "col-6" %>
-            <%= form.text_field :title, id: :issue_title, class: "col-6" %>
-        </div>
-          
-        <div class="field">
+        <div class="grid">
+            <%= form.label :title %>
+            <%= form.text_field :title, id: :issue_title %>
+    
             <%= form.label :description %>
             <%= form.text_field :description, id: :issue_description %>
-        </div>
-        
-        <div class="field">
+    
             <%= form.label :kind %>
             <%= form.select :kind, bug: :bug, enhancement: :enhancement, proposal: :proposal, task: :task %>
-        </div>
-        
-         <div class="field">
+    
             <%= form.label :priority %>
             <%= form.select :priority, major: :major, minor: :minor, trivial: :trivial, blocker: :blocker, critical: :critical  %>
-        </div>
-        
-        <div class="field">
+    
             <%= form.label :user_id %>
             <%= form.text_field :user_id, id: :issue_user_id %>
         </div>
         <br/>
         <div class="actions">
-            <button class="btn-create">
-                Create
-            </button>
+            <button class="btn-create">Create</button>
         </div>
     </form>
     <div>
