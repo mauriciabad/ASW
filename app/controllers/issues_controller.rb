@@ -5,17 +5,15 @@ class IssuesController < ApplicationController
   # GET /issues.json
   def index
     @issues = Issue.all
-    # @updatedAt = List.new
-    # @issues.each do |issue|
-    #   @updatecAt.
+    @issues_open = Issue.where(status: "open")
+    
     
   end
 
+  
   # GET /issues/1
   # GET /issues/1.json
   def show
-    @comments = Comment.all
-    @users = User.all
   end
 
   # GET /issues/new
@@ -75,6 +73,6 @@ class IssuesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def issue_params
-      params.require(:issue).permit(:title, :description, :kind, :priority, :user_id)
+      params.require(:issue).permit(:title, :description, :kind, :priority, :user_id, :status, :votes)
     end
 end

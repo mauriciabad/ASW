@@ -1,5 +1,8 @@
 {
   "name": "hello_app",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "coffeescript": "^2.4.0"
+  }
 }
