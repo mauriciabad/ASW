@@ -3,6 +3,11 @@ class IssuesController < ApplicationController
 
   # GET /issues
   # GET /issues.json
+  
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+  
   def index
     @issues = Issue.all
     @issues_open = Issue.where(status: "open")
@@ -18,7 +23,7 @@ class IssuesController < ApplicationController
 
   # GET /issues/new
   def new
-    @issue = Issue.new
+    @issue = Issue.new()
   end
 
   # GET /issues/1/edit
@@ -29,7 +34,8 @@ class IssuesController < ApplicationController
   # POST /issues.json
   def create
     @issue = Issue.new(issue_params)
-
+    @issue.user_id = 1
+    #@issue.user_id = @current_user.uid
     respond_to do |format|
       if @issue.save
         format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
@@ -54,6 +60,10 @@ class IssuesController < ApplicationController
       end
     end
   end
+  
+  #def like 
+   # @issue.
+  #end
 
   # DELETE /issues/1
   # DELETE /issues/1.json
