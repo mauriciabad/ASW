@@ -27,7 +27,8 @@
     
             <%= form.label :priority %>
             <%= form.select :priority, major: :major, minor: :minor, trivial: :trivial, blocker: :blocker, critical: :critical  %>
-    
+            
+            <%= form.hidden_field :status, id: :issue_status, value: :open %>
         </div>
         <div class="actions">
             <button class="btn-create">Create</button>

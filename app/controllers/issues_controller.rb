@@ -11,6 +11,7 @@ class IssuesController < ApplicationController
   def index
     @issues = Issue.all
     @issues_open = Issue.where(status: "open")
+    @my_issues = Issue.where(user_id: session[:user_id])
     
     
   end
