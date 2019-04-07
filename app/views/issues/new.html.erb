@@ -28,8 +28,6 @@
             <%= form.label :priority %>
             <%= form.select :priority, major: :major, minor: :minor, trivial: :trivial, blocker: :blocker, critical: :critical  %>
     
-            <%= form.label :user_id %>
-            <%= form.text_field :user_id, id: :issue_user_id %>
         </div>
         <div class="actions">
             <button class="btn-create">Create</button>
