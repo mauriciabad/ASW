@@ -8,6 +8,7 @@ class CreateIssues < ActiveRecord::Migration[5.1]
       t.integer :user_id
       t.integer :assigned_user
       t.integer :votes
+      t.integer :watchers
       t.string :status
 
       t.timestamps

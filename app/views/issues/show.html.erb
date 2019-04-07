@@ -20,6 +20,13 @@
       
       <span class="label">User</span>
       <span><%= @issue.user_id %></span>
+      
+      <span class="label">Watchers</span>
+      <span><%= @issue.watchers %></span>
+      
+      <span class="label">Votes</span>
+      <span><%= @issue.votes %></span>
+      
   </div>
   <div class="actions">
     <%= link_to 'Edit', edit_issue_path(@issue), class:"btn-create" %>
