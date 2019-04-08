@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :issues
   resources :users
+  resources :comments
   
   #Si esta registrat un Usuari
   if true

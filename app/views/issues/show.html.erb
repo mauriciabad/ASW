@@ -32,8 +32,8 @@
   <%= link_to 'Edit', edit_issue_path(@issue) %> |
   <%= link_to 'Back', issues_path %>
 
-  <% @comments.where(issue_id: @issue.id).find_each do |comment| %>
-    <p style="font-size: 14px ; color: #0052CC; font-weight: bold;"><%= @users.find(comment.user_id).name %></p>
+  <% @comments.each do |comment| %>
+    <p style="font-size: 14px ; color: #0052CC; font-weight: bold;"><%= comment.user.name %></p>
     <p><%= comment.text %></p>
     
     <li style="display: inline"><%= link_to 'Edit', edit_comment_path(comment) %></li>

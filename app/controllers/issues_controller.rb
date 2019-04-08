@@ -14,7 +14,8 @@ class IssuesController < ApplicationController
   # GET /issues/1
   # GET /issues/1.json
   def show
-    @comments = Comment.all
+    @comments = @issue.comment.all
+    
     @users = User.all
   end
 
@@ -46,6 +47,21 @@ class IssuesController < ApplicationController
   # PATCH/PUT /issues/1
   # PATCH/PUT /issues/1.json
   def update
+    
+        # logger.debug "Person attributes hash: #{comment_params[:text]}"
+        # logger.debug "Person attributes hash: #{@comment.text}"
+        
+        if issue_params[:status] != @issue.status
+          message = 'Status updated'
+        end
+        if issue_params[:title] != @issue.title
+          message += "changed title to: #{comment_params[:title]} \n"
+        end
+        
+        
+        comment = @issue.comment.new(text: message, issue_id: @issue.id , user_id: 1)
+        comment.save
+        
     respond_to do |format|
       if @issue.update(issue_params)
         format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }

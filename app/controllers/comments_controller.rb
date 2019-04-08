@@ -26,6 +26,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.save
+    redirect_to @comment.issue
     
     # respond_to do |format|
     #   if @comment.save
@@ -41,6 +42,10 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
+    
+    logger.debug "Person attributes hash: #{comment_params[:text]}"
+    logger.debug "Person attributes hash: #{@comment.text}"
+    
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
