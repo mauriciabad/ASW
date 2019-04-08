@@ -9,8 +9,8 @@
   <span class="filter-label">Filter by:</span>
   <%= link_to "All", issues_path(@issue), class: :filter %>
   <%= link_to "Open", "?status=open", class: :filter %>
-  <%= link_to "My issues", my_issues_path(@issue), class: :filter %>
-  <a class="filter" href="" id="watching">Watching</a>
+  <%= link_to "My issues", "?my_issues=1", class: :filter %>
+  <%= link_to "Watching", "?watching=1", class: :filter %>
 </div>
 
 <h2>Issues (1–<%= @issues.size %> of <%= @issues.size %>)</h2>
@@ -38,33 +38,33 @@
         <td><%= link_to issue.title, issue %></td>
         <td>
           <% if issue.kind == 'bug' %>
-            <%= link_to image_tag('bug.svg'), issue, title: "Show" %>
+            <%= link_to image_tag('bug.svg'), "?kind=bug" %>
           <% end %>
           <% if issue.kind == 'enhancement' %>
-            <%= link_to image_tag('enhancement.svg'), issue, title: "Show" %>
+            <%= link_to image_tag('enhancement.svg'), "?kind=enhancement" %>
           <% end %>
           <% if issue.kind == 'proposal' %>
-            <%= link_to image_tag('proposal.svg'), issue, title: "Show" %>
+            <%= link_to image_tag('proposal.svg'), "?kind=proposal" %>
           <% end %>
           <% if issue.kind == 'task' %>
-            <%= link_to image_tag('task.svg'), issue, title: "Show" %>
+            <%= link_to image_tag('task.svg'), "?kind=task" %>
           <% end %>
         </td>
         <td>
           <% if issue.priority == 'minor' %>
-            <%= link_to image_tag('minor.svg'), issue, title: "Show" %>
+            <%= link_to image_tag('minor.svg'), "?priority=minor" %>
           <% end %>
           <% if issue.priority == 'major' %>
-            <%= link_to image_tag('major.svg'), issue, title: "Show" %>
+            <%= link_to image_tag('major.svg'), "?priority=major" %>
           <% end %>
           <% if issue.priority == 'trivial' %>
-            <%= link_to image_tag('trivial.svg'), issue, title: "Show" %>
+            <%= link_to image_tag('trivial.svg'), "?priority=trivial" %>
           <% end %>
           <% if issue.priority == 'blocker' %>
-            <%= link_to image_tag('blocker.svg'), issue, title: "Show" %>
+            <%= link_to image_tag('blocker.svg'), "?priority=blocker" %>
           <% end %>
           <% if issue.priority == 'critical' %>
-            <%= link_to image_tag('critical.svg'), issue, title: "Show" %>
+            <%= link_to image_tag('critical.svg'), "?priority=critical" %>
           <% end %>
         </td>
         <td>
@@ -91,7 +91,9 @@
           <% end %>
         </td>
         <td><%= issue.votes %></td>
-        <td><%= issue.user_id %></td>
+        <td>
+          <%= link_to issue.user_id, "?my_issues=issue.user_id" %>
+        </td>
         <td><%= issue.created_at %></td>
         <td></td>
         <td><%= link_to image_tag('pen_1.svg'), edit_issue_path(issue), title: "Edit" %></td>

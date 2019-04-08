@@ -8,6 +8,7 @@ class IssuesController < ApplicationController
   end
   
   def index
+    #status
     if params[:status] == "open"
       @issues = Issue.where(status: "open")
     elsif params[:status] == "onhold"
@@ -22,6 +23,30 @@ class IssuesController < ApplicationController
       @issues = Issue.where(status: "wontfix")
     elsif params[:status] == "closed"
       @issues = Issue.where(status: "closed")
+    #type
+    elsif params[:kind] == "bug"
+      @issues = Issue.where(kind: "bug")
+    elsif params[:kind] == "enhancement"
+      @issues = Issue.where(kind: "enhancement")
+    elsif params[:kind] == "proposal"
+      @issues = Issue.where(kind: "proposal")
+    elsif params[:kind] == "task"
+      @issues = Issue.where(kind: "task")
+    #priority
+    elsif params[:priority] == "major"
+      @issues = Issue.where(priority: "major")
+    elsif params[:priority] == "minor"
+      @issues = Issue.where(priority: "minor")
+    elsif params[:priority] == "trivial"
+      @issues = Issue.where(priority: "trivial")
+    elsif params[:priority] == "blocker"
+      @issues = Issue.where(priority: "blocker")
+    elsif params[:priority] == "critical"
+      @issues = Issue.where(priority: "critical")
+    #my issues
+    elsif params[:my_issues] == 1
+      @issues = Issue.where(user_id: current_user)
+    #all
     else
       @issues = Issue.all
     end
