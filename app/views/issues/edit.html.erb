@@ -18,7 +18,7 @@
   <div class="grid">
     
       <%= form.label :status %>
-      <%= form.select :status, open: :open, onhold: :onhold, inprogess: :inprogess, closed: :closed %>
+      <%= form.select :status, open: :open, onhold: :onhold, resolved: :resolved, duplicate: :duplicate, invalid: :invalid, wontfix: :wontfix, closed: :closed, :selected => params[@issue.kind] %>
     
       <%= form.label :title %>
       <%= form.text_field :title, id: :issue_title, value: @issue.title %>

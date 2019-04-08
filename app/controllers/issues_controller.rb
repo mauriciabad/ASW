@@ -8,11 +8,23 @@ class IssuesController < ApplicationController
   end
   
   def index
-    @issues = Issue.all
-  end
-
-  def openIssues
-    @issues = Issue.where(status: "open")
+    if params[:status] == "open"
+      @issues = Issue.where(status: "open")
+    elsif params[:status] == "onhold"
+      @issues = Issue.where(status: "onhold")
+    elsif params[:status] == "resolved"
+      @issues = Issue.where(status: "resolved")
+    elsif params[:status] == "duplicate"
+      @issues = Issue.where(status: "duplicate")
+    elsif params[:status] == "invalid"
+      @issues = Issue.where(status: "invalid")
+    elsif params[:status] == "wontfix"
+      @issues = Issue.where(status: "wontfix")
+    elsif params[:status] == "closed"
+      @issues = Issue.where(status: "closed")
+    else
+      @issues = Issue.all
+    end
   end
   
   # GET /issues/1

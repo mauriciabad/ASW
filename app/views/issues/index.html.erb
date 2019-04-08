@@ -8,7 +8,7 @@
 <div class="filter-container" id="issue-toolbar">
   <span class="filter-label">Filter by:</span>
   <%= link_to "All", issues_path(@issue), class: :filter %>
-  <%= link_to "Open", open_issues_path(@issue), class: :filter %>
+  <%= link_to "Open", "?status=open", class: :filter %>
   <%= link_to "My issues", my_issues_path(@issue), class: :filter %>
   <a class="filter" href="" id="watching">Watching</a>
 </div>
@@ -69,16 +69,25 @@
         </td>
         <td>
           <% if issue.status == 'open' %>
-            <%= link_to image_tag('new.jpg'), issue, title: "Show" %>
+            <%= link_to image_tag('new.jpg'), "?status=open" %>
           <% end %>
           <% if issue.status == 'onhold' %>
-            <%= link_to image_tag('on_hold.jpg'), issue, title: "Show" %>
+            <%= link_to image_tag('on_hold.jpg'), "?status=onhold" %>
           <% end %>
-          <% if issue.status == 'inprogress' %>
-            <%= link_to image_tag('in_progress.jpg'), issue, title: "Show" %>
+          <% if issue.status == 'resolved' %>
+            <%= link_to image_tag('in_progress.jpg'), "?status=resolved" %>
+          <% end %>
+          <% if issue.status == 'duplicate' %>
+            <%= link_to image_tag('closed.jpg'), "?status=duplicate" %>
+          <% end %>
+          <% if issue.status == 'invalid' %>
+            <%= link_to image_tag('closed.jpg'), "?status=invalid" %>
+          <% end %>
+          <% if issue.status == 'wontfix' %>
+            <%= link_to image_tag('closed.jpg'), "?status=wontfix" %>
           <% end %>
           <% if issue.status == 'closed' %>
-            <%= link_to image_tag('closed.jpg'), issue, title: "Show" %>
+            <%= link_to image_tag('closed.jpg'), "?status=closed" %>
           <% end %>
         </td>
         <td><%= issue.votes %></td>
