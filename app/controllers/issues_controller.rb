@@ -16,6 +16,9 @@ class IssuesController < ApplicationController
     
   end
 
+  def open_issues
+    @issues = Issue.where(status: "open")
+  end
   
   # GET /issues/1
   # GET /issues/1.json
