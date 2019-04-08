@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   resources :issues
   resources :users
+  resources :open_issues
+  resources :my_issues
+  
   
   #Si esta registrat un Usuari
   if true

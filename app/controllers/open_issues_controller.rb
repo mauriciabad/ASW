@@ -1,17 +1,14 @@
-class IssuesController < ApplicationController
+class OpenIssuesController < ApplicationController
   before_action :set_issue, only: [:show, :edit, :update, :destroy]
 
   # GET /issues
   # GET /issues.json
+  
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   
   def index
-    @issues = Issue.all
-  end
-
-  def openIssues
     @issues = Issue.where(status: "open")
   end
   
