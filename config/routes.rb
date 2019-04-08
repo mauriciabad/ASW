@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :issues
   resources :users
+  resources :comments
   resources :open_issues
   resources :my_issues
   
