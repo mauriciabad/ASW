@@ -1,5 +1,18 @@
+<p id="notice"><%= notice %></p>
 
-<p>EEEEEEEYYYYYYY</p>
+<div class="header">
+  <h1>Issues</h1>
+  <%= link_to 'Create issue', new_issue_path, class: "button top-right" %>
+</div>
+
+<div class="filter-container" id="issue-toolbar">
+  <span class="filter-label">Filter by:</span>
+  <%= link_to "All", issues_path(@issue), class: :filter %>
+  <%= link_to "Open", open_issues_path(@issue), class: :filter %>
+  <%= link_to "My issues", my_issues_path(@issue), class: :filter %>
+  <a class="filter" href="" id="watching">Watching</a>
+</div>
+
 <h2>Issues (1–<%= @issues.size %> of <%= @issues.size %>)</h2>
 
 <table>
@@ -78,3 +91,4 @@
     <% end %>
   </tbody>
 </table>
+

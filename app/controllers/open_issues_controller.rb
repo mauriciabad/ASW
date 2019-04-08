@@ -1,25 +1,20 @@
-class IssuesController < ApplicationController
+class OpenIssuesController < ApplicationController
   before_action :set_issue, only: [:show, :edit, :update, :destroy]
 
   # GET /issues
   # GET /issues.json
+  
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   
   def index
-    @issues = Issue.all
-  end
-
-  def openIssues
     @issues = Issue.where(status: "open")
   end
   
   # GET /issues/1
   # GET /issues/1.json
   def show
-    @comments = @issue.comment.all
-    @users = User.all
   end
 
   # GET /issues/new
@@ -51,21 +46,6 @@ class IssuesController < ApplicationController
   # PATCH/PUT /issues/1
   # PATCH/PUT /issues/1.json
   def update
-    
-        # logger.debug "Person attributes hash: #{comment_params[:text]}"
-        # logger.debug "Person attributes hash: #{@comment.text}"
-        
-        if issue_params[:status] != @issue.status
-          message = 'Status updated'
-        end
-        if issue_params[:title] != @issue.title
-          message += "changed title to: #{comment_params[:title]} \n"
-        end
-        
-        
-        comment = @issue.comment.new(text: message, issue_id: @issue.id , user_id: 1)
-        comment.save
-        
     respond_to do |format|
       if @issue.update(issue_params)
         format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }
