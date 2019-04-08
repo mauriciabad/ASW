@@ -18,6 +18,8 @@ class IssuesController < ApplicationController
   # GET /issues/1
   # GET /issues/1.json
   def show
+    @comments = @issue.comment.all
+    @users = User.all
   end
 
   # GET /issues/new

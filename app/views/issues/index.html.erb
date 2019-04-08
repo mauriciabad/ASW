@@ -87,6 +87,7 @@
         <td></td>
         <td><%= link_to image_tag('pen_1.svg'), edit_issue_path(issue), title: "Edit" %></td>
         <td><%= link_to image_tag('delete_1.svg'), issue, method: :delete, data: {confirm: 'Are you sure?'}, title: "Delete" %></td>
+        <td><%= link_to image_tag('eye_2_no.svg'), issue, method: :watch, data: {confirm: 'Are you sure2?'}, title: "Watch" %></td>
       </tr>
     <% end %>
   </tbody>
