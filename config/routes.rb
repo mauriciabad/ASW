@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :lines
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
@@ -12,7 +11,7 @@ Rails.application.routes.draw do
   resources :comments
   resources :open_issues
   resources :my_issues
-  
+  resources :lines
   
   #Si esta registrat un Usuari
   if true

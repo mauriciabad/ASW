@@ -30,15 +30,24 @@
     <%= link_to 'Back', issues_path, class:"btn-back" %>
   </div>
 
-  <% @comments.each do |comment| %>
-    <p style="font-size: 14px ; color: #0052CC; font-weight: bold;"><%= comment.user.name %></p>
-    <p><%= comment.text %></p>
-    
-    <li style="display: inline"><%= link_to 'Edit', edit_comment_path(comment) %></li>
-    <li style="display: inline"><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-    <li style="display: inline"><%= time_ago_in_words(comment.created_at) %></li>
-    
-  <% end %>
+  <div class="comments">
+    <% @comments.each do |comment| %>
+      <div class="comment">
+        <p style="font-size: 14px ; color: #0052CC; font-weight: bold;"><%= comment.user.name %></p>
+        <p><%= comment.text %></p>
+        <ul>
+        <% @lines.where(comment_id: comment.id).each do |line| %>
+          <li><%= line.text %></li>
+        <% end %>
+        </ul>
+        <span>
+          <% if(current_user.id == comment.user_id ) %><span><%= link_to 'Edit', edit_comment_path(comment) %></span><% end %>
+          <% if(current_user.id == comment.user_id ) %><span><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></span><% end %>
+          <%= time_ago_in_words(comment.created_at) %>
+        </span>
+      </div>
+    <% end %>
+  </div>
   
 <%= form_for Comment.new do |f| %> 
 <%= f.text_field :text , placeholder: 'What do you want to say?'%>  

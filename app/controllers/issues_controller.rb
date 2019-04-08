@@ -20,6 +20,7 @@ class IssuesController < ApplicationController
   def show
     @comments = @issue.comment.all
     @users = User.all
+    @lines = Line.all
   end
 
   # GET /issues/new
@@ -55,16 +56,38 @@ class IssuesController < ApplicationController
         # logger.debug "Person attributes hash: #{comment_params[:text]}"
         # logger.debug "Person attributes hash: #{@comment.text}"
         
+        comment = @issue.comment.new(text: '', issue_id: @issue.id , user_id: 1)
+        comment.save
+        
         if issue_params[:status] != @issue.status
-          message = 'Status updated'
+          message = "changed status to #{issue_params[:status]}"
+          line = Line.new(text: message, comment_id: comment.id)
+          line.save
         end
         if issue_params[:title] != @issue.title
-          message += "changed title to: #{comment_params[:title]} \n"
+          message = "changed title to #{issue_params[:title]}"
+          line = Line.new(text: message, comment_id: comment.id)
+          line.save
+        end
+        if issue_params[:description] != @issue.description
+          message = "edited description"
+          line = Line.new(text: message, comment_id: comment.id)
+          line.save
+        end
+        if issue_params[:kind] != @issue.kind
+          message = "marked as #{issue_params[:kind]}"
+          line = Line.new(text: message, comment_id: comment.id)
+          line.save
+        end
+        if issue_params[:priority] != @issue.priority
+          message = "marked as #{issue_params[:priority]}"
+          line = Line.new(text: message, comment_id: comment.id)
+          line.save
         end
         
         
-        comment = @issue.comment.new(text: message, issue_id: @issue.id , user_id: 1)
-        comment.save
+        
+        
         
     respond_to do |format|
       if @issue.update(issue_params)
