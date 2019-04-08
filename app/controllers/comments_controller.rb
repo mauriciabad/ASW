@@ -43,24 +43,28 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1.json
   def update
     
-    logger.debug "Person attributes hash: #{comment_params[:text]}"
-    logger.debug "Person attributes hash: #{@comment.text}"
+    # logger.debug "Person attributes hash: #{comment_params[:text]}"
+    # logger.debug "Person attributes hash: #{@comment.text}"
+    @comment.update(comment_params)
     
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
-      else
-        format.html { render :edit }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to @comment.issue
+    
+    # respond_to do |format|
+    #   if @comment.update(comment_params)
+    #     format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @comment }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @comment.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
     @comment.destroy
+     redirect_to @comment.issue
     # respond_to do |format|
     #   format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
     #   format.json { head :no_content }

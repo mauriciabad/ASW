@@ -36,8 +36,7 @@ class IssuesController < ApplicationController
   # POST /issues.json
   def create
     @issue = Issue.new(issue_params)
-    @issue.user_id = 1
-    #@issue.user_id = @current_user.uid
+    @issue.user_id = current_user.id
     respond_to do |format|
       if @issue.save
         format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
@@ -56,7 +55,7 @@ class IssuesController < ApplicationController
         # logger.debug "Person attributes hash: #{comment_params[:text]}"
         # logger.debug "Person attributes hash: #{@comment.text}"
         
-        comment = @issue.comment.new(text: '', issue_id: @issue.id , user_id: 1)
+        comment = @issue.comment.new(text: '', issue_id: @issue.id , user_id: current_user.id)
         comment.save
         
         if issue_params[:status] != @issue.status
@@ -84,9 +83,6 @@ class IssuesController < ApplicationController
           line = Line.new(text: message, comment_id: comment.id)
           line.save
         end
-        
-        
-        
         
         
     respond_to do |format|

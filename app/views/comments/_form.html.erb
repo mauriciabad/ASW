@@ -17,15 +17,12 @@
   </div>
 
 
- <div class="field">
-    <%= form.label :issue_id %>
-    <%= form.number_field :issue_id, id: :comment_issue_id %>
-  </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :comment_user_id %>
-  </div>
+    <%= form.hidden_field :issue_id, id: :comment_issue_id %>
+
+    <%= form.hidden_field :user_id, id: :comment_user_id %>
+    <!--number_field-->
+
 
   <div class="actions">
     <%= form.submit %>
