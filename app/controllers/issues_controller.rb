@@ -8,6 +8,7 @@ class IssuesController < ApplicationController
   end
   
   def index
+    @users = User.find(:all)
     #status
     if params[:status] == "open"
       @issues = Issue.where(status: "open")
@@ -155,6 +156,6 @@ class IssuesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def issue_params
-      params.require(:issue).permit(:title, :description, :kind, :priority, :user_id, :status, :votes)
+      params.require(:issue).permit(:title, :description, :kind, :priority, :user_id, :status, :votes, :assigned_user)
     end
 end
