@@ -1,18 +1,5 @@
-<p id="notice"><%= notice %></p>
 
-<div class="header">
-  <h1>Issues</h1>
-  <%= link_to 'Create issue', new_issue_path, class: "button top-right" %>
-</div>
-
-<div class="filter-container" id="issue-toolbar">
-  <span class="filter-label">Filter by:</span>
-  <a class="filter" href="" id="all">All</a>
-  <button class="filter" href="" id="open" onclick="add_class(this)">Open</button>
-  <button class="filter" href="" id="my_issues" onclick="">My issues</button>
-  <a class="filter" href="" id="watching">Watching</a>
-</div>
-
+<p>EEEEEEEYYYYYYY</p>
 <h2>Issues (1–<%= @issues.size %> of <%= @issues.size %>)</h2>
 
 <table>
@@ -91,9 +78,3 @@
     <% end %>
   </tbody>
 </table>
-
-<script>
-  add_class = function(id) {
-    document.getElementById(id).classList.add("filter--active");
-  }
-</script>

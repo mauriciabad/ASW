@@ -2,35 +2,36 @@
 
     <h1><%= @issue.title %></h1>
 
-    <table style="width:200px">
-      <tr>
-        <td><strong>Title:</strong></td>
-        <td><%= @issue.title %></td> 
-      </tr>
-      <tr>
-        <td><strong>Description:</strong></td>
-        <td><%= @issue.description %></td>
-      </tr>
-      <tr>
-        <td><strong>Kind:</strong></td>
-        <td><%= @issue.kind %></td>
-      </tr>
-      <tr>
-        <td><strong>Priority:</strong></td>
-        <td><%= @issue.priority %></td>
-      </tr>
-      <tr>
-        <td><strong>Status:</strong></td>
-        <td><%= @issue.status %></td>
-      </tr>
-      <tr>
-        <td><strong>User:</strong></td>
-        <td><%= @issue.user_id %></td>
-      </tr>
-  </table>
-  
-  <%= link_to 'Edit', edit_issue_path(@issue) %> |
-  <%= link_to 'Back', issues_path %>
+    <div class="grid">
+      <span class="label">Title</span>
+      <span><%= @issue.title %></span>
+      
+      <span class="label">Description</span>
+      <span><%= @issue.description %></span>
+      
+      <span class="label">Kind</span>
+      <span><%= @issue.kind %></span>
+      
+      <span class="label">Priority</span>
+      <span><%= @issue.priority %></span>
+      
+      <span class="label">Status</span>
+      <span><%= @issue.status %></span>
+      
+      <span class="label">User</span>
+      <span><%= @issue.user_id %></span>
+      
+      <span class="label">Watchers</span>
+      <span><%= @issue.watchers %></span>
+      
+      <span class="label">Votes</span>
+      <span><%= @issue.votes %></span>
+      
+  </div>
+  <div class="actions">
+    <%= link_to 'Edit', edit_issue_path(@issue), class:"btn-create" %>
+    <%= link_to 'Back', issues_path, class:"btn-back" %>
+  </div>
 
   <% @comments.each do |comment| %>
     <p style="font-size: 14px ; color: #0052CC; font-weight: bold;"><%= comment.user.name %></p>
@@ -40,20 +41,4 @@
     <li style="display: inline"><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></li>
     <li style="display: inline"><%= time_ago_in_words(comment.created_at) %></li>
     
-    
-    
-    
   <% end %>
-  
-  
-<%= form_for Comment.new do |f| %> 
-<%= f.text_field :text , placeholder: 'What do you want to say?'%>  
-<%= f.hidden_field :issue_id, :value => @issue.id %>  
-<%= f.hidden_field :user_id, :value => 1 %>  
-<%= f.submit "Create" %> 
-<% end %>
-
-
-
-
-

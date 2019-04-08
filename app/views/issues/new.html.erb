@@ -20,25 +20,21 @@
             <%= form.text_field :title, id: :issue_title %>
     
             <%= form.label :description %>
-            <%= form.text_field :description, id: :issue_description %>
+            <%= form.text_area :description, id: :issue_description %>
     
             <%= form.label :kind %>
             <%= form.select :kind, bug: :bug, enhancement: :enhancement, proposal: :proposal, task: :task %>
     
             <%= form.label :priority %>
             <%= form.select :priority, major: :major, minor: :minor, trivial: :trivial, blocker: :blocker, critical: :critical  %>
-    
-            <%= form.label :user_id %>
-            <%= form.text_field :user_id, id: :issue_user_id %>
+            
+            <%= form.hidden_field :status, id: :issue_status, value: :open %>
         </div>
-        <br/>
         <div class="actions">
             <button class="btn-create">Create</button>
+            <%= link_to 'Back', issues_path, class: "btn-back" %>
         </div>
     </form>
-    <div>
-        <%= link_to 'Back', issues_path %>
-    </div>
 </div>
 
 

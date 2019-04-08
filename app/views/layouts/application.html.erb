@@ -14,14 +14,14 @@
   </head>
 
   <body>
-    <header>
+    <footer>
       <% if current_user %>
-        Signed in as <strong><%= current_user.name %></strong>
-        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+        Signed in as <strong><%= current_user.uid %></strong>
+        <%= link_to "Sign out", signout_path, id: "sign_out", class: "btn-back" %>
       <% else %>
-        <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+        <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: "btn-back" %>
       <% end %>
-    </header>
+    </footer>
     
     <main>
       <%= yield %>
