@@ -43,6 +43,8 @@
             <% end %>
       </span>
       
+      <span class="label">Attachment</span>
+      <div><%= image_tag @issue.file.representation(resize: "200x200>"), class:"attatchment" %></div>
       
   </div>
   <div class="actions">

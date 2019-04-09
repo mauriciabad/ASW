@@ -70,19 +70,19 @@
         </td>
         <td>
           <% if issue.status == 'open' %>
-            <%= link_to image_tag('new.jpg'), "?status=open" %>
+            <%= link_to image_tag('open.jpg'), "?status=open", style: 'width:100%' %>
           <% end %>
           <% if issue.status == 'onhold' %>
             <%= link_to image_tag('on_hold.jpg'), "?status=onhold" %>
           <% end %>
           <% if issue.status == 'resolved' %>
-            <%= link_to image_tag('in_progress.jpg'), "?status=resolved" %>
+            <%= link_to image_tag('resolved.jpg'), "?status=resolved" %>
           <% end %>
           <% if issue.status == 'duplicate' %>
-            <%= link_to image_tag('closed.jpg'), "?status=duplicate" %>
+            <%= link_to image_tag('duplicate.jpg'), "?status=duplicate" %>
           <% end %>
           <% if issue.status == 'invalid' %>
-            <%= link_to image_tag('closed.jpg'), "?status=invalid" %>
+            <%= link_to image_tag('invalid.jpg'), "?status=invalid" %>
           <% end %>
           <% if issue.status == 'wontfix' %>
             <%= link_to image_tag('closed.jpg'), "?status=wontfix" %>
