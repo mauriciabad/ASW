@@ -46,12 +46,7 @@ class WatchesController < ApplicationController
   end
 
   def find_watch
-    if !(watched)
-      flash[:notice] = "Cannot unwatch"
-    else
-      @watch.destroy
-    end
-    redirect_back fallback_location: root_path
+    @watch = @issue.watches.find(params[:id])
   end
 
 
