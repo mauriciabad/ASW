@@ -1,4 +1,4 @@
-class WatchersController < ApplicationController
+class WatchesController < ApplicationController
   before_action :find_issue
   before_action :find_watch, only: [:destroy]
 
@@ -7,7 +7,7 @@ class WatchersController < ApplicationController
       if watched
         flash[:notice] = "Already Watched"
       else
-        @issue.watchers.create(user_id: current_user.id)
+        @issue.watches.create(user_id: current_user.id)
         flash[:notice] = "You are now watching issue #{@issue.id}"
       end
     else
@@ -32,14 +32,13 @@ class WatchersController < ApplicationController
   end
 
   def find_watch
-    @watch = @issue.watchers.find(params[:id])
+    @watch = @issue.watches.find(params[:id])
   end
 
 
 
   def watched
-  Watch.where(user_id: current_user.id, issue_id:
-    params[:issue_id]).exists?
+  Watch.where(user_id: current_user.id, issue_id: params[:issue_id]).exists?
   end
 
 end

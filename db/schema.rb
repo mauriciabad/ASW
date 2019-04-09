@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20190408173759) do
     t.integer "user_id"
     t.string "assigned_user"
     t.integer "votesCount"
-    t.integer "watchers"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,13 +60,13 @@ ActiveRecord::Schema.define(version: 20190408173759) do
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
-  create_table "watchers", force: :cascade do |t|
+  create_table "watches", force: :cascade do |t|
     t.integer "issue_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["issue_id"], name: "index_watchers_on_issue_id"
-    t.index ["user_id"], name: "index_watchers_on_user_id"
+    t.index ["issue_id"], name: "index_watches_on_issue_id"
+    t.index ["user_id"], name: "index_watches_on_user_id"
   end
 
 end
