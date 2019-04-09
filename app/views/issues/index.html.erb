@@ -90,10 +90,8 @@
             <%= link_to image_tag('closed.jpg'), "?status=closed" %>
           <% end %>
         </td>
-        <td><%= issue.votes %></td>
-        <td>
-          <% #<%= link_to issue.assigned_user "?my_issues=issue.assigned_user" %>
-        </td>
+        <td><%= issue.votesCount %></td>
+        <td><%= issue.assigned_user %></td>
         <td><%= issue.created_at %></td>
         <td><%= DateTime.now %> </td>
         <td><%= link_to image_tag('pen_1.svg'), edit_issue_path(issue), title: "Edit" %></td>

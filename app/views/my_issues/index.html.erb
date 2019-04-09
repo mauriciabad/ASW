@@ -82,7 +82,7 @@
           <% end %>
         </td>
         <td><%= issue.votes %></td>
-        <td><%= issue.user_id %></td>
+        <td><%= issue.assigned_user %></td>
         <td><%= issue.created_at %></td>
         <td></td>
         <td><%= link_to image_tag('pen_1.svg'), edit_issue_path(issue), title: "Edit" %></td>

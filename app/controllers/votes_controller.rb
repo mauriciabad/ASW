@@ -5,8 +5,8 @@ class VotesController < ApplicationController
 
   def create
     if current_user != nil
-      if already_voted?
-        flash[:notice] = "You can't vote more than once"
+      if voted
+        flash[:notice] = "Already voted"
       else
         @issue.votes.create(user_id: current_user.id)
       end
@@ -17,7 +17,7 @@ class VotesController < ApplicationController
   end
 
   def destroy
-    if !(already_voted?)
+    if !(voted)
       flash[:notice] = "Cannot unvote"
     else
       @vote.destroy
@@ -34,9 +34,8 @@ class VotesController < ApplicationController
    @vote = @issue.votes.find(params[:id])
   end
 
-  def already_voted?
-  Vote.where(user_id: current_user.id, issue_id:
-    params[:issue_id]).exists?
+  def voted
+  Vote.where(user_id: current_user.id, issue_id: params[:issue_id]).exists?
   end
 end
 

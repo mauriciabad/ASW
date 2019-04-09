@@ -73,7 +73,7 @@ class IssuesController < ApplicationController
     @issue = Issue.new(issue_params)
     @issue.assigned_user = current_user.name
     @issue.user_id = current_user.id
-    @issue.votes = 0
+    @issue.votesCount = 0
     respond_to do |format|
       if @issue.save
         format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
@@ -134,9 +134,10 @@ class IssuesController < ApplicationController
   end
   
   def vote 
-   @issue.votes = @issue.votes + 1
+   @issue.votesCount = @issue.votesCount + 1
    @issue.save
    redirect_back(fallback_location: root_path)
+   
   end
 
   # DELETE /issues/1
@@ -157,6 +158,6 @@ class IssuesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def issue_params
-      params.require(:issue).permit(:title, :description, :kind, :priority, :user_id, :status, :votes, :assigned_user)
+      params.require(:issue).permit(:title, :description, :kind, :priority, :user_id, :status, :votesCount, :assigned_user)
     end
 end
