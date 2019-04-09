@@ -45,8 +45,8 @@ class IssuesController < ApplicationController
     elsif params[:my_issues] == "me"
       @issues = Issue.where(user_id: current_user.id)
     #watching
-    elsif params[:watching] == "me"
-      @issues = Issue.where(w: current_user.id)
+    #elsif params[:watching] == "me"
+    #  @issues = Issue.where(: current_user.id)
     #all
     else
       @issues = Issue.all
