@@ -1,5 +1,5 @@
 class IssuesController < ApplicationController
-  before_action :set_issue, only: [:show, :edit, :update, :destroy]
+  before_action :set_issue, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /issues
   # GET /issues.json
@@ -75,6 +75,7 @@ class IssuesController < ApplicationController
   def create
     @issue = Issue.new(issue_params)
     @issue.user_id = current_user.id
+    @issue.votes = 0
     respond_to do |format|
       if @issue.save
         format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
@@ -134,9 +135,11 @@ class IssuesController < ApplicationController
     end
   end
   
-  #def like 
-   # @issue.
-  #end
+  def vote 
+   @issue.votes = @issue.votes + 1
+   @issue.save
+   redirect_back(fallback_location: root_path)
+  end
 
   # DELETE /issues/1
   # DELETE /issues/1.json

@@ -6,12 +6,19 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:show]
 
-  resources :issues
+  resources :issues do
+    member do
+      post 'vote'
+    end
+  end
+
   resources :users
   resources :comments
   resources :open_issues
   resources :my_issues
   resources :lines
+  resources :votes
+  resources :watchers
   
   #Si esta registrat un Usuari
   if true

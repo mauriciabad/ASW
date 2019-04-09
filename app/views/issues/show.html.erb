@@ -24,6 +24,8 @@
       <span class="label">Votes</span>
       <span><%= @issue.votes %></span>
       
+      <td><%= button_to 'Vote', vote_issue_path(@issue), method: :post %></td>
+      
   </div>
   <div class="actions">
     <%= link_to 'Create issue', new_issue_path(@issue), class:"btn-create" %>
