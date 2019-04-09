@@ -50,11 +50,11 @@
           <% if @issue.file.representable? %>
             <%= image_tag @issue.file.representation(resize: "200x200>"), class:"attatchment" %>
           <% else %>
-            <%= image_tag @issue.file.filename %>
+            <%= @issue.file.filename %>
           <% end %>
           </a>
         <% else %>
-        <%= 'None' %>
+          <span>None</span>
         <% end %>
       </div>
       
