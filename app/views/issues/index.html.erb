@@ -9,8 +9,8 @@
   <span class="filter-label">Filter by:</span>
   <%= link_to "All", issues_path(@issue), class: :filter %>
   <%= link_to "Open", "?status=open", class: :filter %>
-  <%= link_to "My issues", "?my_issues=1", class: :filter %>
-  <%= link_to "Watching", "?watching=1", class: :filter %>
+  <%= link_to "My issues", "?my_issues=me", class: :filter %>
+  <%= link_to "Watching", "?watching=me", class: :filter %>
 </div>
 
 <h2>Issues (1–<%= @issues.size %> of <%= @issues.size %>)</h2>
@@ -23,7 +23,7 @@
       <th title="Priority" class="img-col">P</th>
       <th>Status</th>
       <th>Votes</th>
-      <th>User</th>
+      <th>Assigned user</th>
       <th>Created</th>
       <th>Updated</th>
       <th class="img-col no-visible"></th>

@@ -42,8 +42,11 @@ class IssuesController < ApplicationController
     elsif params[:priority] == "critical"
       @issues = Issue.where(priority: "critical")
     #my issues
-    elsif params[:my_issues] == 1
-      @issues = Issue.where(user_id: current_user)
+    elsif params[:my_issues] == "me"
+      @issues = Issue.where(user_id: current_user.id)
+    #watching
+    elsif params[:my_issues] == "me"
+      @issues = Issue.where(user_id: current_user.id)
     #all
     else
       @issues = Issue.all
