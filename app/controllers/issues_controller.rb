@@ -8,7 +8,7 @@ class IssuesController < ApplicationController
   end
   
   def index
-    @users = User.find(:all)
+    #@users = User.find(:all)
     #status
     if params[:status] == "open"
       @issues = Issue.where(status: "open")
