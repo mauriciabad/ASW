@@ -15,6 +15,20 @@ class WatchesController < ApplicationController
     end
     redirect_back fallback_location: root_path
   end
+  
+  def show
+    if current_user != nil
+      if watched
+        flash[:notice] = "Already Watched"
+      else
+        @issue.watches.create(user_id: current_user.id)
+        flash[:notice] = "You are now watching issue #{@issue.id}"
+      end
+    else
+      flash[:notice] = "Cannot watch if you're not logged in"
+    end
+    redirect_back fallback_location: root_path
+  end
 
 
   def destroy
@@ -32,7 +46,12 @@ class WatchesController < ApplicationController
   end
 
   def find_watch
-    @watch = @issue.watches.find(params[:id])
+    if !(watched)
+      flash[:notice] = "Cannot unwatch"
+    else
+      @watch.destroy
+    end
+    redirect_back fallback_location: root_path
   end
 
 

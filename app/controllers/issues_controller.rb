@@ -142,6 +142,16 @@ class IssuesController < ApplicationController
    redirect_back(fallback_location: root_path)
    
   end
+  
+  def watch 
+    
+   @watch = @issue.watches.create
+   w = Watch.create
+   @issue.watch = w
+   flash[:notice] = "CREAT"
+   redirect_back(fallback_location: root_path)
+   
+  end
 
   # DELETE /issues/1
   # DELETE /issues/1.json
