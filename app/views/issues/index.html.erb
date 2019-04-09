@@ -9,8 +9,8 @@
   <span class="filter-label">Filter by:</span>
   <%= link_to "All", issues_path(@issue), class: :filter %>
   <%= link_to "Open", "?status=open", class: :filter %>
-  <%= link_to "My issues", "?my_issues=1", class: :filter %>
-  <%= link_to "Watching", "?watching=1", class: :filter %>
+  <%= link_to "My issues", "?my_issues=me", class: :filter %>
+  <%= link_to "Watching", "?watching=me", class: :filter %>
 </div>
 
 <h2>Issues (1–<%= @issues.size %> of <%= @issues.size %>)</h2>
@@ -23,7 +23,7 @@
       <th title="Priority" class="img-col">P</th>
       <th>Status</th>
       <th>Votes</th>
-      <th>User</th>
+      <th>Assigned user</th>
       <th>Created</th>
       <th>Updated</th>
       <th class="img-col no-visible"></th>
@@ -69,19 +69,19 @@
         </td>
         <td>
           <% if issue.status == 'open' %>
-            <%= link_to image_tag('new.jpg'), "?status=open" %>
+            <%= link_to image_tag('open.jpg'), "?status=open", style: 'width:100%' %>
           <% end %>
           <% if issue.status == 'onhold' %>
             <%= link_to image_tag('on_hold.jpg'), "?status=onhold" %>
           <% end %>
           <% if issue.status == 'resolved' %>
-            <%= link_to image_tag('in_progress.jpg'), "?status=resolved" %>
+            <%= link_to image_tag('resolved.jpg'), "?status=resolved" %>
           <% end %>
           <% if issue.status == 'duplicate' %>
-            <%= link_to image_tag('closed.jpg'), "?status=duplicate" %>
+            <%= link_to image_tag('duplicate.jpg'), "?status=duplicate" %>
           <% end %>
           <% if issue.status == 'invalid' %>
-            <%= link_to image_tag('closed.jpg'), "?status=invalid" %>
+            <%= link_to image_tag('invalid.jpg'), "?status=invalid" %>
           <% end %>
           <% if issue.status == 'wontfix' %>
             <%= link_to image_tag('closed.jpg'), "?status=wontfix" %>
@@ -91,12 +91,23 @@
           <% end %>
         </td>
         <td><%= issue.votesCount %></td>
-        <td><%= issue.assigned_user %></td>
+        <td>
+          <%= link_to issue.assigned_user, "?my_issues=" + issue.assigned_user %>
+        </td>
         <td><%= issue.created_at %></td>
         <td><%= DateTime.now %> </td>
         <td><%= link_to image_tag('pen_1.svg'), edit_issue_path(issue), title: "Edit" %></td>
         <td><%= link_to image_tag('delete_1.svg'), issue, method: :delete, data: {confirm: 'Are you sure?'}, title: "Delete" %></td>
-        <td><%= link_to image_tag('eye_2_no.svg'), issue, method: :watch, data: {confirm: 'Are you sure2?'}, title: "Watch" %></td>
+        <td>
+          
+          <% exist = issue.watches.find { |watch| watch.user_id == current_user.id} %>
+          <% if exist %>
+            <%= link_to image_tag('eye_2.svg') %>
+          <% else %>
+            <%= link_to image_tag('eye_2_no.svg') %>
+          <% end %>
+          
+        </td>
       </tr>
     <% end %>
   </tbody>

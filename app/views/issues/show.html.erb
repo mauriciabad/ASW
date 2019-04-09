@@ -22,14 +22,32 @@
       <span><%= @issue.assigned_user %></span>
       
       <span class="label">Votes</span>
-      <span><%= @issue.votesCount %></span>
+      <span>
+        <%= @issue.votesCount %> 
+        <%= link_to 'Vote',  vote_issue_path(@issue), method: :post %>
+      </span>
+      
+      <span class="label">Votes New</span>
+      
+      <span>
+        <%= @issue.watches.count %>
+        <% exist = @issue.watches.find { |watch| watch.user_id == current_user.id} %>
+            <% if exist %>
+              <%= link_to 'Unwatch'%>
+              <%= link_to image_tag('eye_2.svg'), "?status=open" %>
+            <% else %>
+              <%= link_to 'Watch', issue_watch_path(@issue), method: :get %>
+              <%= link_to image_tag('eye_2_no.svg'), "?status=open" %>
+            <% end %>
+
+      </span>
       
       <span class="label">Attachment</span>
       <div><%= image_tag @issue.file.representation(resize: "200x200>"), class:"attatchment" %></div>
       
   </div>
   <div class="actions">
-    <%= link_to 'Vote',  vote_issue_path(@issue), method: :post,  class:"btn-create" %>
+    
     <%= link_to 'Create issue', new_issue_path(@issue), class:"btn-create" %>
     <% if(current_user.id == @issue.user_id ) %><span><%= link_to 'Edit', edit_issue_path(@issue), class:"btn-create" %></span><% end %>
     <%= link_to 'Back', issues_path, class:"btn-back" %>

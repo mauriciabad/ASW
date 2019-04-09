@@ -7,18 +7,23 @@ Rails.application.routes.draw do
   resource :home, only: [:show]
 
   resources :issues do
+    resources :votes
+    resources :watches
     member do
       post 'vote'
+      post 'watch'
     end
   end
+  
+  resources :votes
+  resources :watches
 
   resources :users
   resources :comments
   resources :open_issues
   resources :my_issues
   resources :lines
-  resources :votes
-  resources :watchers
+
   
   #Si esta registrat un Usuari
   if true

@@ -5,7 +5,7 @@ class IssuesController < ApplicationController
   # GET /issues.json
   
   def index
-    #@users = User.find(:all)
+    @users = User.all
     #status
     if params[:status] == "open"
       @issues = Issue.where(status: "open")
@@ -42,8 +42,11 @@ class IssuesController < ApplicationController
     elsif params[:priority] == "critical"
       @issues = Issue.where(priority: "critical")
     #my issues
-    elsif params[:my_issues] == 1
-      @issues = Issue.where(user_id: current_user)
+    elsif params[:my_issues] == "me"
+      @issues = Issue.where(user_id: current_user.id)
+    #watching
+    #elsif params[:watching] == "me"
+    #  @issues = Issue.where(: current_user.id)
     #all
     else
       @issues = Issue.all
@@ -136,6 +139,16 @@ class IssuesController < ApplicationController
   def vote 
    @issue.votesCount = @issue.votesCount + 1
    @issue.save
+   redirect_back(fallback_location: root_path)
+   
+  end
+  
+  def watch 
+    
+   @watch = @issue.watches.create
+   w = Watch.create
+   @issue.watch = w
+   flash[:notice] = "CREAT"
    redirect_back(fallback_location: root_path)
    
   end
