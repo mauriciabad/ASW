@@ -24,10 +24,10 @@
       <span class="label">Votes</span>
       <span><%= @issue.votes %></span>
       
-      <td><%= button_to 'Vote', vote_issue_path(@issue), method: :post %></td>
       
   </div>
   <div class="actions">
+    <%= link_to 'Vote',  vote_issue_path(@issue), method: :post,  class:"btn-create" %>
     <%= link_to 'Create issue', new_issue_path(@issue), class:"btn-create" %>
     <% if(current_user.id == @issue.user_id ) %><span><%= link_to 'Edit', edit_issue_path(@issue), class:"btn-create" %></span><% end %>
     <%= link_to 'Back', issues_path, class:"btn-back" %>
