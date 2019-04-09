@@ -5,7 +5,7 @@ class IssuesController < ApplicationController
   # GET /issues.json
   
   def index
-    #@users = User.find(:all)
+    @users = User.all
     #status
     if params[:status] == "open"
       @issues = Issue.where(status: "open")
@@ -45,8 +45,8 @@ class IssuesController < ApplicationController
     elsif params[:my_issues] == "me"
       @issues = Issue.where(user_id: current_user.id)
     #watching
-    elsif params[:my_issues] == "me"
-      @issues = Issue.where(user_id: current_user.id)
+    elsif params[:watching] == "me"
+      @issues = Issue.where(w: current_user.id)
     #all
     else
       @issues = Issue.all
