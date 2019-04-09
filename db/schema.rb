@@ -53,24 +53,21 @@ ActiveRecord::Schema.define(version: 20190408173759) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.string "votable_type"
-    t.integer "votable_id"
-    t.string "voter_type"
-    t.integer "voter_id"
-    t.boolean "vote_flag"
-    t.string "vote_scope"
-    t.integer "vote_weight"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
-  end
-
-  create_table "whatchers", force: :cascade do |t|
-    t.integer "id_issue"
-    t.string "watcher"
+    t.integer "issue_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["issue_id"], name: "index_votes_on_issue_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
+  create_table "watchers", force: :cascade do |t|
+    t.integer "issue_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issue_id"], name: "index_watchers_on_issue_id"
+    t.index ["user_id"], name: "index_watchers_on_user_id"
   end
 
 end
