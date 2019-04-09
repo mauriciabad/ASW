@@ -15,8 +15,8 @@
 
   <body>
       <footer>
-        <% if !defined?(current_user) %>
-          Signed in as <strong><%= current_user.uid %></strong>
+        <% if !defined?(current_user) or current_user %>
+          Signed in as <strong><%= current_user.name %></strong>
           <%= link_to "Sign out", signout_path, id: "sign_out", class: "btn-back" %>
         <% else %>
           You are not logged in, please<%= link_to "sign in", "/auth/google_oauth2", id: "sign_in", class: "btn-back" %>
