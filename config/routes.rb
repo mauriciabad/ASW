@@ -9,10 +9,6 @@ Rails.application.routes.draw do
   resources :issues do
     resources :votes
     resources :watches
-    member do
-      post 'vote'
-      post 'watch'
-    end
   end
   
   resources :votes

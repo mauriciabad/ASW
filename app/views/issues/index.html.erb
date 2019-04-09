@@ -23,6 +23,7 @@
       <th title="Priority" class="img-col">P</th>
       <th>Status</th>
       <th>Votes</th>
+      <th>Watches</th>
       <th>Assigned user</th>
       <th>Created</th>
       <th>Updated</th>
@@ -90,7 +91,8 @@
             <%= link_to image_tag('closed.jpg'), "?status=closed" %>
           <% end %>
         </td>
-        <td><%= issue.votesCount %></td>
+        <td><%= issue.votes.count %></td>
+        <td><%= issue.watches.count %></td>
         <td>
           <%= link_to issue.assigned_user, "?my_issues=" + issue.assigned_user %>
         </td>
@@ -102,9 +104,9 @@
           
           <% exist = issue.watches.find { |watch| watch.user_id == current_user.id} %>
           <% if exist %>
-            <%= link_to image_tag('eye_2.svg') %>
+            <%= link_to image_tag('eye_2.svg'), issue_watch_path(issue,exist), method: :delete %>
           <% else %>
-            <%= link_to image_tag('eye_2_no.svg') %>
+            <%= link_to image_tag('eye_2_no.svg'), issue_watches_path(issue), method: :post %>
           <% end %>
           
         </td>
