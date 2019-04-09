@@ -4,10 +4,6 @@ class OpenIssuesController < ApplicationController
   # GET /issues
   # GET /issues.json
   
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-  
   def index
     @issues = Issue.where(user_id: @current_user)
   end
@@ -30,8 +26,9 @@ class OpenIssuesController < ApplicationController
   # POST /issues.json
   def create
     @issue = Issue.new(issue_params)
-    @issue.user_id = 1
-    #@issue.user_id = @current_user.uid
+    @issue.assigned_user = current_user.name
+    @issue.user_id = current_user.id
+    @issue.votes = 0
     respond_to do |format|
       if @issue.save
         format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
