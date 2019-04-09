@@ -14,17 +14,15 @@
   </head>
 
   <body>
-    <% if !defined?(current_user) %>
       <footer>
-        <% if current_user %>
+        <% if !defined?(current_user) %>
           Signed in as <strong><%= current_user.uid %></strong>
           <%= link_to "Sign out", signout_path, id: "sign_out", class: "btn-back" %>
         <% else %>
-          <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: "btn-back" %>
+          You are not logged in, please<%= link_to "sign in", "/auth/google_oauth2", id: "sign_in", class: "btn-back" %>
         <% end %>
       </footer>
-    <% end %>
-    
+
     <main>
       <%= yield %>
     </main>
