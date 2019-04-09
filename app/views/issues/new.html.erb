@@ -30,7 +30,7 @@
             
             
             <%= form.label :assigned_user %>
-            <%= select_tag "Assigned user", options_from_collection_for_select(@users, "id", "name")  %>
+            <% #<%= select_tag "Assigned user", options_from_collection_for_select(@users, "id", "name")  %>
             
             <%= form.hidden_field :status, id: :issue_status, value: :open %>
         </div>
