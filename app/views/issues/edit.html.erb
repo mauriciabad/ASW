@@ -34,6 +34,14 @@
 
       <%= form.label :user_id %>
       <%= form.text_field :user_id, id: :issue_user_id, disabled:"true" %>
+      
+      <%= form.label :file %>
+      <div>
+        <%= form.file_field :file, multiple: false, direct_upload: true %>
+        <%= image_tag @issue.file.representation(resize: "200x200>"), class:"attatchment" %>
+      </div>
+      
+      
     </div>
     
     <div class="actions">
