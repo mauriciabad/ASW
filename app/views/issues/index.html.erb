@@ -18,14 +18,14 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th title="Type" class="img-col">T</th>
-      <th title="Priority" class="img-col">P</th>
-      <th>Status</th>
-      <th>Votes</th>
-      <th>Assigned user</th>
-      <th>Created</th>
-      <th>Updated</th>
+      <th><%= link_to "Title", "?title=order" %></th>
+      <th title="Type" class="img-col"><%= link_to "T", "?type=order" %></th>
+      <th title="Priority" class="img-col"><%= link_to "P", "?priority=order" %></th>
+      <th><%= link_to "Status", "?status=order" %></th>
+      <th><%= link_to "Votes", "?votesCount=order" %></th>
+      <th><%= link_to "Assigned user", "?assigned_user=order" %></th>
+      <th><%= link_to "Created", "?created_at=order" %></th>
+      <th><%= link_to "Update", "?updated_at=order" %></th>
       <th class="img-col no-visible"></th>
       <th class="img-col no-visible"></th>
       <th class="img-col no-visible"></th>
@@ -91,7 +91,9 @@
           <% end %>
         </td>
         <td><%= issue.votesCount %></td>
-        <td><%= User.find(issue.assigned_user).name %></td>
+        <td>
+          <%= link_to User.find(issue.assigned_user).name, "?my_issues=" + User.find(issue.assigned_user).name %>
+        </td>
         <td><%= issue.created_at.strftime("%Y-%m-%d") %></td>
         <td>
           <% if (Time.now - issue.updated_at.time) < 3600 %>
