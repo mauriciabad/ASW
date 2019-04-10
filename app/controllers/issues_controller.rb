@@ -71,7 +71,7 @@ class IssuesController < ApplicationController
   # POST /issues.json
   def create
     @issue = Issue.new(issue_params)
-    @issue.assigned_user = current_user.name
+    # @issue.assigned_user = current_user.name
     @issue.user_id = current_user.id
     @issue.votesCount = 0
     respond_to do |format|

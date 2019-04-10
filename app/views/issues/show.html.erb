@@ -19,7 +19,7 @@
       <span><%= @issue.status %></span>
       
       <span class="label">User</span>
-      <span><%= @issue.assigned_user %></span>
+      <span><%= User.find(@issue.assigned_user).name %></span>
       
       <span class="label">Votes</span>
       <span><%= @issue.votesCount %></span>
