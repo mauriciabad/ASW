@@ -23,7 +23,6 @@
       <th title="Priority" class="img-col">P</th>
       <th>Status</th>
       <th>Votes</th>
-      <th>Watches</th>
       <th>Assigned user</th>
       <th>Created</th>
       <th>Updated</th>
@@ -91,24 +90,32 @@
             <%= link_to image_tag('closed.jpg'), "?status=closed" %>
           <% end %>
         </td>
-        <td><%= issue.votes.count %></td>
-        <td><%= issue.watches.count %></td>
+        <td><%= issue.votesCount %></td>
         <td>
           <%= link_to issue.assigned_user, "?my_issues=" + issue.assigned_user %>
         </td>
-        <td><%= issue.created_at %></td>
-        <td><%= DateTime.now %> </td>
+        <td><%= issue.created_at.strftime("%Y-%m-%d") %></td>
+        <td>
+          <% if (Time.now - issue.updated_at.time) < 3600 %>
+            <%= "Since " + ((Time.now - issue.updated_at.time)/60).round.to_s  + " minuts" %>
+          <% end %>
+          <% if (Time.now - issue.updated_at.time) > 3600 && (Time.now - issue.updated_at.time) < 86400 %>
+            <%= "Since " + ((Time.now - issue.updated_at.time)/3600).round.to_s  + " hours" %>
+          <% end %>
+          <% if (Time.now - issue.updated_at.time) > 86400 %>
+            <%= "Since " + ((Time.now - issue.updated_at.time)/86400).round.to_s  + " days" %>
+          <% end %>
+        </td>
         <td><%= link_to image_tag('pen_1.svg'), edit_issue_path(issue), title: "Edit" %></td>
         <td><%= link_to image_tag('delete_1.svg'), issue, method: :delete, data: {confirm: 'Are you sure?'}, title: "Delete" %></td>
         <td>
           
           <% exist = issue.watches.find { |watch| watch.user_id == current_user.id} %>
           <% if exist %>
-            <%= link_to image_tag('eye_2.svg'), issue_watch_path(issue,exist), method: :delete %>
+            <%= link_to image_tag('eye_2.svg') %>
           <% else %>
-            <%= link_to image_tag('eye_2_no.svg'), issue_watches_path(issue), method: :post %>
+            <%= link_to image_tag('eye_2_no.svg') %>
           <% end %>
-          
         </td>
       </tr>
     <% end %>
