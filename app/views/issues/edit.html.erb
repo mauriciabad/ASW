@@ -33,7 +33,7 @@
       <%= form.select :priority, major: :major, minor: :minor, trivial: :trivial, blocker: :blocker, critical: :critical, :selected => params[@issue.priority] %>
 
       <%= form.label :assigned_user %>
-      <%= form.text_field :user_id, id: :assigned_user, disabled:"true" %>
+      <%= form.collection_select(:assigned_user, User.all, :id, :name ) %>
       
       <%= form.label :file %>
       <div>

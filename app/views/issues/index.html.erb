@@ -91,9 +91,7 @@
           <% end %>
         </td>
         <td><%= issue.votesCount %></td>
-        <td>
-          <%= link_to issue.assigned_user, "?my_issues=" + issue.assigned_user %>
-        </td>
+        <td><%= User.find(issue.assigned_user).name %></td>
         <td><%= issue.created_at.strftime("%Y-%m-%d") %></td>
         <td>
           <% if (Time.now - issue.updated_at.time) < 3600 %>
