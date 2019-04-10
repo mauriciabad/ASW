@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 2019_04_09_194208) do
     t.integer "user_id"
     t.string "assigned_user"
     t.integer "votesCount"
-    t.integer "watchers"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
