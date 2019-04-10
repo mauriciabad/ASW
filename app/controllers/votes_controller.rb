@@ -5,21 +5,15 @@ class VotesController < ApplicationController
 
   def create
     if current_user != nil
-      if voted
-        flash[:notice] = "Already voted"
-      else
+      if !voted
         @issue.votes.create(user_id: current_user.id)
       end
-    else
-      flash[:notice] = "Cannot vote if you're not logged in"
     end
     redirect_to issue_path(@issue)
   end
 
   def destroy
-    if !(voted)
-      flash[:notice] = "Cannot unvote"
-    else
+    if voted
       @vote.destroy
     end
     redirect_to issue_path(@issue)
