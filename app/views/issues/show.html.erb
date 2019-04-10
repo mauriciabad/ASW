@@ -22,13 +22,45 @@
       <span><%= User.find(@issue.assigned_user).name %></span>
       
       <span class="label">Votes</span>
-      <span><%= @issue.votesCount %></span>
+      <span>
+        <%= @issue.votes.count %>
+        <% exist = @issue.votes.find { |vote| vote.user_id == current_user.id} %>
+            <% if exist %>
+              <%= link_to 'Unvote', issue_vote_path(@issue,exist), method: :delete, class:"btn-create" %>
+            <% else %>
+              <%= link_to 'Vote', issue_votes_path(@issue), method: :post, class:"btn-create" %>
+            <% end %>
+      </span>
       
+      <span class="label">Watches</span>
+      <span>
+        <%= @issue.watches.count %>
+        <% exist = @issue.watches.find { |watch| watch.user_id == current_user.id} %>
+            <% if exist %>
+              <%= link_to 'Unwatch', issue_watch_path(@issue,exist), method: :delete, class:"btn-create" %>
+            <% else %>
+              <%= link_to 'Watch', issue_watches_path(@issue), method: :post, class:"btn-create" %>
+            <% end %>
+      </span>
+      
+      <span class="label">Attachment</span>
+      <div>
+        <% if @issue.file.attached? %>
+          <a href="<%= url_for(@issue.file) %>" download >
+          <% if @issue.file.representable? %>
+            <%= image_tag @issue.file.representation(resize: "200x200>"), class:"attatchment" %>
+          <% else %>
+            <%= @issue.file.filename %>
+          <% end %>
+          </a>
+        <% else %>
+          <span>None</span>
+        <% end %>
+      </div>
       
   </div>
   <div class="actions">
-    <%= link_to 'Vote',  vote_issue_path(@issue), method: :post,  class:"btn-create" %>
-    <%= link_to 'Create issue', new_issue_path(@issue), class:"btn-create" %>
+    
     <% if(current_user.id == @issue.user_id ) %><span><%= link_to 'Edit', edit_issue_path(@issue), class:"btn-create" %></span><% end %>
     <%= link_to 'Back', issues_path, class:"btn-back" %>
   </div>

@@ -34,7 +34,14 @@
 
       <%= form.label :assigned_user %>
       <%= form.collection_select(:assigned_user, User.all, :id, :name ) %>
-          
+      
+      <%= form.label :file %>
+      <div>
+        <%= form.file_field :file, multiple: false, direct_upload: true %>
+        <%=  @issue.file.attached? ? (image_tag @issue.file.representation(resize: "200x200>"), class:"attatchment") : '' %>
+      </div>
+      
+      
     </div>
     
     <div class="actions">
