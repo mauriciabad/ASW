@@ -37,7 +37,7 @@
       
       <%= form.label :file %>
       <div>
-        <%= form.file_field :file, multiple: false, direct_upload: true %>
+        <%= form.file_field :file, multiple: false, direct_upload: true, class:"upload-btn-wrapper" %>
         <%=  @issue.file.attached? ? (image_tag @issue.file.representation(resize: "200x200>"), class:"attatchment") : '' %>
       </div>
       
