@@ -45,8 +45,8 @@ class IssuesController < ApplicationController
     elsif params[:my_issues] == "me"
       @issues = Issue.where(user_id: current_user.id)
     #watching
-    #elsif params[:watching] == "me"
-    #  @issues = Issue.where(: current_user.id)
+    elsif params[:watching] == "me"
+      @issues = Issue.joins(:watches).where(['watches.issue_id = issues.id AND watches.user_id = ?', current_user.id])
     #all
     else
       @issues = Issue.all
@@ -171,6 +171,6 @@ class IssuesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def issue_params
-      params.require(:issue).permit(:title, :description, :kind, :priority, :user_id, :status, :votesCount, :assigned_user, :file)
+      params.require(:issue).permit(:title, :description, :kind, :priority, :user_id, :status, :votesCount, :assigned_user)
     end
 end
