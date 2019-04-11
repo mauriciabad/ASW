@@ -22,8 +22,13 @@
       <th title="Type" class="img-col"><%= link_to "T", "?type=order" %></th>
       <th title="Priority" class="img-col"><%= link_to "P", "?priority=order" %></th>
       <th><%= link_to "Status", "?status=order" %></th>
+<<<<<<< HEAD
       <th><%= link_to "Votes", "?votesCount=order" %></th>
       <th><%= link_to "Watches", "?watchers=order" %></th>
+=======
+      <th><%= link_to "Votes", "?votes.count=order" %></th>
+      <th><%= link_to "Watches", "?watches.count=order" %></th>
+>>>>>>> ca87f13956998f7180afca81d68afb3144f4e875
       <th><%= link_to "Assigned user", "?assigned_user=order" %></th>
       <th><%= link_to "Created", "?created_at=order" %></th>
       <th><%= link_to "Update", "?updated_at=order" %></th>
