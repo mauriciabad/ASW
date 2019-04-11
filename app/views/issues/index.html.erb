@@ -22,7 +22,8 @@
       <th title="Type" class="img-col"><%= link_to "T", "?type=order" %></th>
       <th title="Priority" class="img-col"><%= link_to "P", "?priority=order" %></th>
       <th><%= link_to "Status", "?status=order" %></th>
-      <th><%= link_to "Votes", "?votesCount=order" %></th>
+      <th><%= link_to "Votes", "?votes.count=order" %></th>
+      <th><%= link_to "Watches", "?votesCount=order" %></th>
       <th><%= link_to "Assigned user", "?assigned_user=order" %></th>
       <th><%= link_to "Created", "?created_at=order" %></th>
       <th><%= link_to "Update", "?updated_at=order" %></th>
@@ -90,7 +91,8 @@
             <%= link_to image_tag('closed.jpg'), "?status=closed" %>
           <% end %>
         </td>
-        <td><%= issue.votesCount %></td>
+        <td><%= issue.votes.count %></td>
+        <td><%= issue.watches.count %></td>
         <td>
           <%= link_to User.find(issue.assigned_user).name, "?my_issues=" + User.find(issue.assigned_user).name %>
         </td>
@@ -112,9 +114,9 @@
           
           <% exist = issue.watches.find { |watch| watch.user_id == current_user.id} %>
           <% if exist %>
-            <%= link_to image_tag('eye_2.svg') %>
+            <%= link_to image_tag('eye_2.svg') , issue_watch_path(issue,exist), method: :delete%>
           <% else %>
-            <%= link_to image_tag('eye_2_no.svg') %>
+            <%= link_to image_tag('eye_2_no.svg') , issue_watches_path(issue), method: :post %>
           <% end %>
         </td>
       </tr>
