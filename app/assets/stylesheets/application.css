@@ -201,7 +201,7 @@ input, textarea, select {
   text-decoration: underline;
 }
 .btn-link{
-  color: #0052CC;
+  color: #000;
   background: #D3D3D3;
   border: none;
   outline: 0;
@@ -248,4 +248,9 @@ input, textarea, select {
   border-radius: 8px;
   font-size: 20px;
   font-weight: bold;
+}
+
+lt-mirror{
+     display: none !important; 
+}
 }
