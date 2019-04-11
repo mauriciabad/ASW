@@ -123,6 +123,11 @@ class IssuesController < ApplicationController
           line = Line.new(text: message, comment_id: comment.id)
           line.save
         end
+        if issue_params[:assigned_user] != @issue.assigned_user
+          message = "assigned to #{User.find(issue_params[:assigned_user]).name}"
+          line = Line.new(text: message, comment_id: comment.id)
+          line.save
+        end
         
         
     respond_to do |format|
