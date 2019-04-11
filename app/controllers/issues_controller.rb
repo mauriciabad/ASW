@@ -57,7 +57,10 @@ class IssuesController < ApplicationController
     elsif params[:status] == "order"
       @issues = Issue.order(:status)
     elsif params[:votesCount] == "order"
+      #@issues = Issue.joins(:votes).where(['votes.issue_id = issues.id']).order(:)
       @issues = Issue.order(:votesCount)
+    elsif params[:watchers] == "order"
+      @issues = Issue.order(:watchers)
     elsif params[:assigned_user] == "order"
       @issues = Issue.order(:assigned_user)
     elsif params[:created_at] == "order"
