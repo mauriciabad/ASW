@@ -24,22 +24,24 @@
       <span class="label">Votes</span>
       <span>
         <%= @issue.votes.count %>
+        <span>&nbsp&nbsp</span>
         <% exist = @issue.votes.find { |vote| vote.user_id == current_user.id} %>
             <% if exist %>
-              <%= link_to 'Unvote', issue_vote_path(@issue,exist), method: :delete, class:"btn-create" %>
+              <%= link_to 'Unvote', issue_vote_path(@issue,exist), method: :delete, class:"btn-link" %>
             <% else %>
-              <%= link_to 'Vote', issue_votes_path(@issue), method: :post, class:"btn-create" %>
+              <%= link_to 'Vote', issue_votes_path(@issue), method: :post, class:"btn-link" %>
             <% end %>
       </span>
       
       <span class="label">Watches</span>
       <span>
         <%= @issue.watches.count %>
+        <span>&nbsp&nbsp</span>
         <% exist = @issue.watches.find { |watch| watch.user_id == current_user.id} %>
             <% if exist %>
-              <%= link_to 'Unwatch', issue_watch_path(@issue,exist), method: :delete, class:"btn-create" %>
+              <%= link_to 'Unwatch', issue_watch_path(@issue,exist), method: :delete, class:"btn-link" %>
             <% else %>
-              <%= link_to 'Watch', issue_watches_path(@issue), method: :post, class:"btn-create" %>
+              <%= link_to 'Watch', issue_watches_path(@issue), method: :post, class:"btn-link" %>
             <% end %>
       </span>
       
@@ -76,17 +78,17 @@
         <% end %>
         </ul>
         <span>
-          <% if(current_user.id == comment.user_id ) %><span><%= link_to 'Edit', edit_comment_path(comment) %></span><% end %>
-          <% if(current_user.id == comment.user_id ) %><span><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></span><% end %>
+          <% if(current_user.id == comment.user_id ) %><span><%= link_to 'Edit', edit_comment_path(comment), class:"btn-link" %></span><% end %>
+          <% if(current_user.id == comment.user_id ) %><span><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn-link" %></span><% end %>
           <%= time_ago_in_words(comment.created_at) %>
         </span>
       </div>
     <% end %>
   </div>
-  
+  </br>
 <%= form_for Comment.new do |f| %> 
 <%= f.text_field :text , placeholder: 'What do you want to say?'%>  
 <%= f.hidden_field :issue_id, :value => @issue.id %>  
 <%= f.hidden_field :user_id, :value => 1 %>  
-<%= f.submit "Create" %>
+<%= f.submit "Create", class:"btn-link" %>
 <% end %>

@@ -18,14 +18,20 @@
 <table>
   <thead>
     <tr>
-      <th >Title</th>
-      <th title="Type" class="img-col">T</th>
-      <th title="Priority" class="img-col">P</th>
-      <th>Status</th>
-      <th>Votes</th>
-      <th>Assigned user</th>
-      <th>Created</th>
-      <th>Updated</th>
+      <th><%= link_to "Title", "?title=order" %></th>
+      <th title="Type" class="img-col"><%= link_to "T", "?type=order" %></th>
+      <th title="Priority" class="img-col"><%= link_to "P", "?priority=order" %></th>
+      <th><%= link_to "Status", "?status=order" %></th>
+<<<<<<< HEAD
+      <th><%= link_to "Votes", "?votesCount=order" %></th>
+      <th><%= link_to "Watches", "?watchers=order" %></th>
+=======
+      <th><%= link_to "Votes", "?votes.count=order" %></th>
+      <th><%= link_to "Watches", "?watches.count=order" %></th>
+>>>>>>> ca87f13956998f7180afca81d68afb3144f4e875
+      <th><%= link_to "Assigned user", "?assigned_user=order" %></th>
+      <th><%= link_to "Created", "?created_at=order" %></th>
+      <th><%= link_to "Update", "?updated_at=order" %></th>
       <th class="img-col no-visible"></th>
       <th class="img-col no-visible"></th>
       <th class="img-col no-visible"></th>
@@ -67,31 +73,34 @@
             <%= link_to image_tag('critical.svg'), "?priority=critical" %>
           <% end %>
         </td>
-        <td>
+        <td style="height:30px">
           <% if issue.status == 'open' %>
-            <%= link_to image_tag('open.jpg'), "?status=open", style: 'width:100%' %>
+            <%= link_to image_tag('open.jpg',style:"width:70px;height:100%"), "?status=open" %>
           <% end %>
           <% if issue.status == 'onhold' %>
-            <%= link_to image_tag('on_hold.jpg'), "?status=onhold" %>
+            <%= link_to image_tag('on_hold.jpg', style:"width:70px;height:100%"), "?status=onhold" %>
           <% end %>
           <% if issue.status == 'resolved' %>
-            <%= link_to image_tag('resolved.jpg'), "?status=resolved" %>
+            <%= link_to image_tag('resolved.jpg',style:"width:70px;height:100%"), "?status=resolved" %>
           <% end %>
           <% if issue.status == 'duplicate' %>
-            <%= link_to image_tag('duplicate.jpg'), "?status=duplicate" %>
+            <%= link_to image_tag('duplicate.jpg',style:"width:70px;height:100%"), "?status=duplicate" %>
           <% end %>
           <% if issue.status == 'invalid' %>
-            <%= link_to image_tag('invalid.jpg'), "?status=invalid" %>
+            <%= link_to image_tag('invalid.jpg',style:"width:70px;height:100%"), "?status=invalid" %>
           <% end %>
           <% if issue.status == 'wontfix' %>
-            <%= link_to image_tag('closed.jpg'), "?status=wontfix" %>
+            <%= link_to image_tag('wontfix.jpg',style:"width:70px;height:100%"), "?status=wontfix" %>
           <% end %>
           <% if issue.status == 'closed' %>
-            <%= link_to image_tag('closed.jpg'), "?status=closed" %>
+            <%= link_to image_tag('closed.jpg',style:"width:70px;height:100%"), "?status=closed" %>
           <% end %>
         </td>
-        <td><%= issue.votesCount %></td>
-        <td><%= User.find(issue.assigned_user).name %></td>
+        <td><%= issue.votes.count %></td>
+        <td><%= issue.watches.count %></td>
+        <td>
+          <%= link_to User.find(issue.assigned_user).name, "?my_issues=" + User.find(issue.assigned_user).name %>
+        </td>
         <td><%= issue.created_at.strftime("%Y-%m-%d") %></td>
         <td>
           <% if (Time.now - issue.updated_at.time) < 3600 %>
@@ -110,9 +119,9 @@
           
           <% exist = issue.watches.find { |watch| watch.user_id == current_user.id} %>
           <% if exist %>
-            <%= link_to image_tag('eye_2.svg') %>
+            <%= link_to image_tag('eye_2.svg') , issue_watch_path(issue,exist), method: :delete%>
           <% else %>
-            <%= link_to image_tag('eye_2_no.svg') %>
+            <%= link_to image_tag('eye_2_no.svg') , issue_watches_path(issue), method: :post %>
           <% end %>
         </td>
       </tr>

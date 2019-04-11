@@ -47,6 +47,26 @@ class IssuesController < ApplicationController
     #watching
     elsif params[:watching] == "me"
       @issues = Issue.joins(:watches).where(['watches.issue_id = issues.id AND watches.user_id = ?', current_user.id])
+    #order by
+    elsif params[:title] == "order"
+      @issues = Issue.order(:title)
+    elsif params[:type] == "order"
+      @issues = Issue.order(:type)
+    elsif params[:priority] == "order"
+      @issues = Issue.order(:priority)
+    elsif params[:status] == "order"
+      @issues = Issue.order(:status)
+    elsif params[:votesCount] == "order"
+      #@issues = Issue.joins(:votes).where(['votes.issue_id = issues.id']).order(:)
+      @issues = Issue.order(:votesCount)
+    elsif params[:watchers] == "order"
+      @issues = Issue.order(:watchers)
+    elsif params[:assigned_user] == "order"
+      @issues = Issue.order(:assigned_user)
+    elsif params[:created_at] == "order"
+      @issues = Issue.order(:created_at)
+    elsif params[:updated_at] == "order"
+      @issues = Issue.order(:updated_at)
     #all
     else
       @issues = Issue.all
@@ -74,7 +94,7 @@ class IssuesController < ApplicationController
   # POST /issues.json
   def create
     @issue = Issue.new(issue_params)
-    # @issue.assigned_user = current_user.name
+    #@issue.assigned_user = current_user.name
     @issue.user_id = current_user.id
     @issue.votesCount = 0
     respond_to do |format|
@@ -176,6 +196,6 @@ class IssuesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def issue_params
-      params.require(:issue).permit(:title, :description, :kind, :priority, :user_id, :status, :votesCount, :assigned_user)
+      params.require(:issue).permit(:title, :description, :kind, :priority, :user_id, :status, :votesCount, :assigned_user, :file)
     end
 end
