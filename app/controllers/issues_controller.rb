@@ -74,7 +74,7 @@ class IssuesController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.json {render json: @issues, status: :ok, each_serializer: IssuesSerializer}
+      format.json {render json: @issues, status: :ok, each_serializer: IssueSerializer}
     end
   end
   
@@ -84,6 +84,11 @@ class IssuesController < ApplicationController
     @comments = @issue.comment.all
     @users = User.all
     @lines = Line.all
+    
+     respond_to do |format|
+      format.html
+      format.json {render json: @issue, status: :ok, serializer: ShowIssueSerializer}
+    end
   end
 
   # GET /issues/new
