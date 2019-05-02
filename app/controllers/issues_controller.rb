@@ -74,7 +74,7 @@ class IssuesController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.json {render json: @issues, status: :ok, each_serializer: IndexIssueSerializer}
+      format.json {render json: @issues, status: :ok, each_serializer: IssuesSerializer}
     end
   end
   
