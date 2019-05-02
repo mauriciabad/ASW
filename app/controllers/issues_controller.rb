@@ -71,6 +71,11 @@ class IssuesController < ApplicationController
     else
       @issues = Issue.all
     end
+    
+    respond_to do |format|
+      format.html
+      format.json {render json: @issues, status: :ok, each_serializer: IndexIssueSerializer}
+    end
   end
   
   # GET /issues/1
