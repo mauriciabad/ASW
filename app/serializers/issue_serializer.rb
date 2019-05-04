@@ -1,15 +1,19 @@
 class IssueSerializer < ActiveModel::Serializer
   attributes :id, :title, :description, :created_at, :updated_at, :kind,
-             :priority, :status, :votes
+             :priority, :status, :votes, :watches
 
   def votes
     object.votes.size
   end
+  
+  def watches
+    object.watches.size
+  end
 
   def _embedded
     {
-        comments: object.comments.order('created_at asc'),
-        attached_files: object.attached_files
+        comments: object.comment,
+        attached_files: object.file
     }
   end
 end

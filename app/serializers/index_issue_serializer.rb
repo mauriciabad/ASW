@@ -12,7 +12,7 @@ class IndexIssueSerializer < IssueSerializer
   end
 
   def watched_by_current_user
-    object.watchers.exists?(current_user.id)
+    object.watches.exists?(current_user.id)
   end
 
   def _links
