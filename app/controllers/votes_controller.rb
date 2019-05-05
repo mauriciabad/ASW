@@ -2,7 +2,8 @@ class VotesController < ApplicationController
   before_action :find_issue
   before_action :find_vote, only: [:destroy]
 
-
+  # POST /issues/:issue_id/vote
+  # POST /issues/:issue_id/vote.json
   def create
     if current_user != nil
       if !voted
@@ -10,6 +11,10 @@ class VotesController < ApplicationController
       end
     end
     redirect_to issue_path(@issue)
+        respond_to do |format|
+      format.html { redirect_to "/issues/#{ @issue.id }" }
+      format.json { render json: { message: message }, status: :ok }
+    end
   end
 
   def destroy
