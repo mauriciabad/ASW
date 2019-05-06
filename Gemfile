@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails',        '5.2.3'
 gem 'bootsnap'
+gem "aws-sdk-s3", require: false
 gem 'mini_magick'
 gem 'puma',         '3.9.1'
 gem 'sass-rails',   '5.0.6'

@@ -10,7 +10,8 @@ class WatchesController < ApplicationController
     end
     redirect_back fallback_location: root_path
         respond_to do |format|
-      format.html { redirect_to "/issues/#{ @issue.id }" }
+      format.html
+      #format.html { redirect_to "/issues/#{ @issue.id }" }
       format.json { render json: { message: message }, status: :ok }
     end
   end
