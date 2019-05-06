@@ -225,9 +225,6 @@ input, textarea, select {
   color: #0052CC;
   display: block;
 }
-.container{
-  
-}
 
 .upload-btn-wrapper {
   position: relative;
@@ -252,5 +249,4 @@ input, textarea, select {
 
 lt-mirror{
      display: none !important; 
-}
 }
