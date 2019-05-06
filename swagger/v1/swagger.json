@@ -6,6 +6,24 @@
   },
   "paths": {
     "/issues.json": {
+      "get": {
+        "summary": "get Issues",
+        "tags": [
+          "Issues"
+        ],
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "issue created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      },
       "post": {
         "summary": "Creates an Issue",
         "tags": [

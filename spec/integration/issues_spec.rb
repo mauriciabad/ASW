@@ -2,7 +2,26 @@ require 'swagger_helper'
 
 describe 'IsuueTracker API' do
 
-#  path '/api/v1/pets' do
+
+path '/issues.json' do
+
+    get 'Get Issues' do
+      tags 'Issues'
+      consumes 'application/json', 'application/xml'
+
+      response '201', 'issue created' do
+        let(:issues) { { title: 'Issue 1', description: 'Prova issue 1' } }
+        run_test!
+      end
+
+      response '422', 'invalid request' do
+        let(:issues) { { title: 'foo' } }
+        run_test!
+      end
+    end
+  end
+  
+
      
   path '/issues.json' do
 
