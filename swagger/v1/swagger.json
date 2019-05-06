@@ -7,7 +7,7 @@
   "paths": {
     "/issues.json": {
       "get": {
-        "summary": "get Issues",
+        "summary": "Get Issues",
         "tags": [
           "Issues"
         ],
@@ -86,6 +86,136 @@
       }
     },
     "/issues/{id}.json": {
+      "get": {
+        "summary": "Retrieves a pet",
+        "tags": [
+          "Pets"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "name found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "photo_url": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "status"
+              ]
+            }
+          },
+          "404": {
+            "description": "pet not found"
+          }
+        }
+      }
+    },
+    "/users.json": {
+      "get": {
+        "summary": "Get users",
+        "tags": [
+          "users"
+        ],
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "users created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      },
+      "post": {
+        "summary": "Creates an users",
+        "tags": [
+          "users"
+        ],
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "users",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "priority": {
+                  "type": "string"
+                },
+                "user_id": {
+                  "type": "integer"
+                },
+                "assigned_user": {
+                  "type": "integer"
+                },
+                "votesCount": {
+                  "type": "integer"
+                },
+                "watchers": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "status"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "user created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      }
+    },
+    "/users/{id}.json": {
       "get": {
         "summary": "Retrieves a pet",
         "tags": [
