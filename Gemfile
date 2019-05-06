@@ -3,6 +3,7 @@ ruby '2.5.3'
 
 gem 'rails',        '5.2.3'
 gem 'bootsnap'
+gem "aws-sdk-s3", require: false
 gem 'mini_magick'
 gem 'puma',         '3.9.1'
 gem 'sass-rails',   '5.0.6'
@@ -13,16 +14,16 @@ gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 gem "omniauth-google-oauth2", "~> 0.2.1"
 
-gem 'byebug',  '9.0.6', platform: :mri
 group :development, :test do
   gem 'sqlite3', '1.3.13'
+  gem 'byebug',  '9.0.6', platform: :mri
 end
 
-gem 'listen',                '3.1.5'
-gem 'spring',                '2.0.2'
-gem 'spring-watcher-listen', '2.0.1'
 group :development do
   gem 'web-console',           '3.5.1'
+  gem 'listen',                '3.1.5'
+  gem 'spring',                '2.0.2'
+  gem 'spring-watcher-listen', '2.0.1'
 end
 
 group :production do
