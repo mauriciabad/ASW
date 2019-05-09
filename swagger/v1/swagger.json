@@ -181,93 +181,11 @@
             "description": "issue not found"
           }
         }
-      }
-    },
-    "/users.json": {
-      "get": {
-        "summary": "Get users",
-        "tags": [
-          "users"
-        ],
-        "consumes": [
-          "application/json",
-          "application/xml"
-        ],
-        "responses": {
-          "201": {
-            "description": "users created"
-          },
-          "422": {
-            "description": "invalid request"
-          }
-        }
       },
-      "post": {
-        "summary": "Creates an users",
+      "patch": {
+        "summary": "Update a Issue Prova",
         "tags": [
-          "users"
-        ],
-        "consumes": [
-          "application/json",
-          "application/xml"
-        ],
-        "parameters": [
-          {
-            "name": "users",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "kind": {
-                  "type": "string"
-                },
-                "priority": {
-                  "type": "string"
-                },
-                "user_id": {
-                  "type": "integer"
-                },
-                "assigned_user": {
-                  "type": "integer"
-                },
-                "votesCount": {
-                  "type": "integer"
-                },
-                "watchers": {
-                  "type": "integer"
-                },
-                "status": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "name",
-                "status"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "user created"
-          },
-          "422": {
-            "description": "invalid request"
-          }
-        }
-      }
-    },
-    "/users/{id}.json": {
-      "get": {
-        "summary": "Retrieves a pet",
-        "tags": [
-          "Pets"
+          "Issues"
         ],
         "produces": [
           "application/json",
@@ -308,7 +226,27 @@
             }
           },
           "404": {
-            "description": "pet not found"
+            "description": "issue not found"
+          }
+        }
+      }
+    },
+    "/users.json": {
+      "get": {
+        "summary": "Get users",
+        "tags": [
+          "users"
+        ],
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "201": {
+            "description": "users created"
+          },
+          "422": {
+            "description": "invalid request"
           }
         }
       }
