@@ -24,11 +24,20 @@ path '/comments.json' do
   
     path '/comments/.json' do
 
-    get 'create issue' do
+    post 'create issue' do
       tags 'Comments'
       produces 'application/json', 'application/xml'
-      parameter name: :id, :in => :path, :type => :string
-
+      parameter name: :comment, in: :body, schema: {
+        type: :object,
+        properties: {
+            id: { type: :integer, },
+            text: { type: :string },
+            issue_id: { type: :integer },
+            user_id: { type: :integer }
+        },
+        required: [ 'id', 'text', 'issue_id', 'user_id']
+      }
+      
       response '200', 'name found' do
         schema type: :object,
           properties: {
