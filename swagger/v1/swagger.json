@@ -89,7 +89,7 @@
       "get": {
         "summary": "Retrieves a pet",
         "tags": [
-          "Pets"
+          "Issues"
         ],
         "produces": [
           "application/json",
