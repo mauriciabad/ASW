@@ -182,7 +182,7 @@
     },
     "/issues/{id}.json": {
       "get": {
-        "summary": "Retrieves a pet",
+        "summary": "Get a issue",
         "tags": [
           "Issues"
         ],
@@ -226,6 +226,54 @@
           },
           "404": {
             "description": "pet not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta a Issue",
+        "tags": [
+          "Issues"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "name found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "photo_url": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "status"
+              ]
+            }
+          },
+          "404": {
+            "description": "issue not found"
           }
         }
       }
