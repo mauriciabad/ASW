@@ -30,7 +30,6 @@ path '/comments.json' do
       parameter name: :comment, in: :body, schema: {
         type: :object,
         properties: {
-            id: { type: :integer, },
             text: { type: :string },
             issue_id: { type: :integer },
             user_id: { type: :integer }
