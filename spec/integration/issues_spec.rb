@@ -60,7 +60,7 @@ path '/issues.json' do
   path '/issues/{id}.json' do
 
     get 'Retrieves a pet' do
-      tags 'Pets'
+      tags 'Issues'
       produces 'application/json', 'application/xml'
       parameter name: :id, :in => :path, :type => :string
 
