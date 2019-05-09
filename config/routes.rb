@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   resources :issues do
     resources :votes
     resources :watches
+    resources :comments
   end
   
   resources :votes
   resources :watches
-
   resources :users
   resources :comments
   resources :open_issues

@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
   # GET /comments.json
   def index
     @comments = Comment.all
+
     respond_to do |format|
       format.html
       format.json { render json: @comments, status: :ok }
