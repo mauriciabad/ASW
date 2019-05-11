@@ -14,7 +14,7 @@ class VotesController < ApplicationController
         respond_to do |format|
           format.html
       #format.html { redirect_to "/issues/#{ @issue.id }" }
-      format.json { render json: { message: message }, status: :ok }
+      format.json { }
     end
   end
 

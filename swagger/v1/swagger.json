@@ -319,7 +319,7 @@
             }
          }
       },
-      "/issues/{issueID}/vote": {
+      "/issues/{issueID}/votes": {
          "post": {
             "tags": [
                "Issues"
@@ -362,7 +362,7 @@
             }
          }
       },
-      "/issues/{issueID}/watch": {
+      "/issues/{issueID}/watches": {
          "post": {
             "tags": [
                "Issues"
