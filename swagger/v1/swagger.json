@@ -768,35 +768,45 @@
         }
       }
     },
-    "/me": {
+    "/users/{userID}": {
       "get": {
         "tags": [
           "Users"
         ],
-        "summary": "Get info about the authenticated user",
-        "description": "Returns the basic information of the current (authenticated) user.",
-        "produces": [
-          "application/json"
-        ],
+        "summary": "Get an user",
+        "description": "Returns all the information for the user with ID <b>userID</b>.",
         "security": [
           {
             "apiKey": []
           }
         ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userID",
+            "description": "",
+            "required": true,
+            "type": "integer"
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Returns current user info",
+            "description": "Returns user info",
             "schema": {
               "$ref": "#/definitions/UserSummary"
             }
           },
-          "401": {
-            "$ref": "#/responses/UnauthorizedResponse"
+          "404": {
+            "$ref": "#/responses/UserNotFound"
           }
         }
       }
     }
   },
+  
   "responses": {
     "UnauthorizedResponse": {
       "description": "Missing authentication or API key / Invalid API key",
@@ -818,6 +828,18 @@
           "error": {
             "type": "string",
             "example": "Issue not found"
+          }
+        }
+      }
+    },
+    "UserNotFound": {
+      "description": "There is no such user with ID {userID}",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "User not found"
           }
         }
       }
