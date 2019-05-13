@@ -201,7 +201,11 @@ class IssuesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_issue
-      @issue = Issue.find(params[:id])
+      if !Issue.exists?(params[:id])
+        render json: {error: 'Issue not found'}, status: :not_found if @issue.nil?
+      else
+        @issue = Issue.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

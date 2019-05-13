@@ -1023,10 +1023,10 @@
           "description": "Description of the issue",
           "example": "New issue description..."
         },
-        "assignee_id": {
+        "assigned_user": {
           "type": "integer",
-          "description": "ID of the user assigned to an issue",
-          "example": 1
+          "description": "User id",
+          "example": "1"
         },
         "kind": {
           "type": "string",
