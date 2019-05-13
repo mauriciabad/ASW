@@ -892,20 +892,6 @@
         "url": {
           "type": "string",
           "example": "https://3669a7e7c2ad48b99b3f0a9a96e8c79a.vfs.cloud9.us-east-2.amazonaws.com/users/1.json"
-        },
-        "_links": {
-          "type": "object",
-          "properties": {
-            "self": {
-              "type": "object",
-              "properties": {
-                "href": {
-                  "type": "string",
-                  "example": "/users/1"
-                }
-              }
-            }
-          }
         }
       }
     },
