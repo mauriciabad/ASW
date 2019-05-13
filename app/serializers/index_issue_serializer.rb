@@ -20,12 +20,6 @@ class IndexIssueSerializer < IssueSerializer
         self: { href: "/issues/#{object.id}" },
         creator: object.user.as_json_summary,
     }
-
-    if object.assignee
-      links = links.merge(
-          assignee: object.assignee.as_json_summary)
-    end
-
     links
   end
 end

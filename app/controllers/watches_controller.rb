@@ -7,12 +7,13 @@ class WatchesController < ApplicationController
       if !watched
         @issue.watches.create(user_id: current_user.id)
       end
+      message = 'Issue watched'
     end
-    redirect_back fallback_location: root_path
+    #redirect_back fallback_location: root_path
         respond_to do |format|
       format.html
       #format.html { redirect_to "/issues/#{ @issue.id }" }
-      format.json { }
+      format.json { render json: { message: message }, status: :ok }
     end
   end
   

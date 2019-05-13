@@ -234,7 +234,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns all issue info",
+            "description": "Returns issue info",
             "schema": {
               "$ref": "#/definitions/IssueShow"
             }
@@ -367,7 +367,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Issue voted / Issue unvoted",
+            "description": "Issue voted",
             "schema": {
               "type": "object",
               "properties": {
@@ -410,7 +410,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Issue watched / Issue unwatched",
+            "description": "Issue watched",
             "schema": {
               "type": "object",
               "properties": {
@@ -850,33 +850,27 @@
     "UserSummary": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "integer",
+          "example": "0"
+        },
         "name": {
           "type": "string",
-          "example": "John Appleseed"
+          "example": "Batman Martinez"
         },
-        "nickname": {
+        "email": {
           "type": "string",
-          "example": "john.appleseed"
-        },
-        "_links": {
-          "type": "object",
-          "properties": {
-            "image": {
-              "type": "object",
-              "properties": {
-                "href": {
-                  "type": "string",
-                  "example": "http://google.com/image.png"
-                }
-              }
-            }
-          }
+          "example": "hello@mauriciabad.com"
         }
       }
     },
     "IssueIndex": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "integer",
+          "example": "0"
+        },
         "title": {
           "type": "string",
           "example": "Issue title"
@@ -911,9 +905,17 @@
           "type": "integer",
           "example": 1
         },
+        "watches": {
+          "type": "integer",
+          "example": 1
+        },
         "voted_by_current_user": {
           "type": "boolean",
           "example": true
+        },
+        "watched_by_current_user": {
+          "type": "boolean",
+          "example": false
         },
         "_links": {
           "type": "object",
@@ -953,11 +955,6 @@
           "description": "Description of the issue",
           "example": "New issue description..."
         },
-        "assignee_id": {
-          "type": "integer",
-          "description": "ID of the user assigned to an issue",
-          "example": 1
-        },
         "kind": {
           "type": "string",
           "description": "Kind of the issue",
@@ -978,6 +975,11 @@
             "critical",
             "blocker"
           ]
+        },
+        "assigned_user": {
+          "type": "integer",
+          "description": "User id",
+          "example": "1"
         },
         "status": {
           "type": "string",
@@ -1122,6 +1124,10 @@
     "IssueShow": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "integer",
+          "example": "1"
+        },
         "title": {
           "type": "string",
           "example": "Issue title"
@@ -1129,16 +1135,6 @@
         "description": {
           "type": "string",
           "example": "This is an issue description"
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date",
-          "example": "2017-05-07T18:28:01.933Z"
-        },
-        "updated_at": {
-          "type": "string",
-          "format": "date",
-          "example": "2017-05-07T18:28:01.933Z"
         },
         "kind": {
           "type": "string",
@@ -1151,6 +1147,16 @@
         "status": {
           "type": "string",
           "example": "new_issue"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date",
+          "example": "2017-05-07T18:28:01.933Z"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date",
+          "example": "2017-05-07T18:28:01.933Z"
         },
         "votes": {
           "type": "integer",

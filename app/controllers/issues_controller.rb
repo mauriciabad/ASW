@@ -74,7 +74,7 @@ class IssuesController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.json {render json: @issues, status: :ok, each_serializer: IssueSerializer}
+      format.json {render json: @issues, status: :ok, each_serializer: IndexIssueSerializer}
     end
   end
   
@@ -110,7 +110,7 @@ class IssuesController < ApplicationController
     respond_to do |format|
       if @issue.save
         format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
-        format.json { render :show, status: :created, location: @issue }
+        format.json {render json: @issue, status: :ok, serializer: ShowIssueSerializer}
       else
         format.html { render :new }
         format.json { render json: @issue.errors, status: :unprocessable_entity }
@@ -194,7 +194,7 @@ class IssuesController < ApplicationController
     @issue.destroy
     respond_to do |format|
       format.html { redirect_to issues_url, notice: 'Issue was successfully destroyed.' }
-      format.json { head :no_content }
+      format.json {render json: {message: 'Issue deleted successfully'}, status: :ok}
     end
   end
 

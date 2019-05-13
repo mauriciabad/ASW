@@ -10,4 +10,12 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+  
+  def as_json_summary
+    {
+        id: self.id,
+        name: self.name,
+        email: self.email,
+    }
+  end
 end

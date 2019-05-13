@@ -8,13 +8,16 @@ class VotesController < ApplicationController
     if current_user != nil
       if !voted
         @issue.votes.create(user_id: current_user.id)
+        message = 'Issue voted'
+      else
+        message = 'Issue voted'
       end
     end
-    redirect_to issue_path(@issue)
-        respond_to do |format|
+    ##redirect_to issue_path(@issue)
+      respond_to do |format|
           format.html
       #format.html { redirect_to "/issues/#{ @issue.id }" }
-      format.json { }
+      format.json { render json: { message: message }, status: :ok }
     end
   end
 
