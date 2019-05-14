@@ -1,0 +1,24 @@
+class AttachedFile < ActiveRecord::Base
+  belongs_to :issue
+  has_attached_file :file
+  validates_attachment :file, presence: true
+  do_not_validate_attachment_file_type :file
+  validates_attachment :file, size: { in: 0..5.megabytes }
+
+  def as_json(options = {})
+    super()
+    {
+      name: file_file_name,
+      type: file_content_type,
+      _links: { self: { href: "/attached_files/#{id}" }, url: file.url }
+    }
+  end
+
+  def as_json_2
+    {
+      name: file_file_name,
+      type: file_content_type,
+      _links: { self: { href: "/attached_files/#{id}" }, url: file.url }
+    }
+  end
+end

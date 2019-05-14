@@ -35,10 +35,10 @@
       <%= form.label :assigned_user %>
       <%= form.collection_select(:assigned_user, User.all, :id, :name ) %>
       
-      <%= form.label :file %>
+      <%= form.label :attached_file %>
       <div>
-        <%= form.file_field :file, multiple: false, direct_upload: true, class:"upload-btn-wrapper" %>
-        <%=  @issue.file.attached? ? (image_tag @issue.file.representation(resize: "200x200>"), class:"attatchment") : '' %>
+        <%= form.file_field :attached_file, multiple: false, direct_upload: true, class:"upload-btn-wrapper" %>
+        <%=  @issue.attached_file.attached? ? (image_tag @issue.attached_file.representation(resize: "200x200>"), class:"attatchment") : '' %>
       </div>
       
       

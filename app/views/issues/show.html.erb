@@ -47,12 +47,12 @@
       
       <span class="label">Attachment</span>
       <div>
-        <% if @issue.file.attached? %>
-          <a href="<%= url_for(@issue.file) %>" download >
-          <% if @issue.file.representable? %>
-            <%= image_tag @issue.file.representation(resize: "200x200>"), class:"attatchment" %>
+        <% if @issue.attached_file.attached? %>
+          <a href="<%= url_for(@issue.attached_file) %>" download >
+          <% if @issue.attached_file.representable? %>
+            <%= image_tag @issue.attached_file.representation(resize: "200x200>"), class:"attatchment" %>
           <% else %>
-            <%= @issue.file.filename %>
+            <%= @issue.attached_file.filename %>
           <% end %>
           </a>
         <% else %>

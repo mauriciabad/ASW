@@ -13,7 +13,7 @@ class IssueSerializer < ActiveModel::Serializer
   def _embedded
     {
         comments: object.comment,
-        attached_files: object.file
+        attached_files: object.attached_file.as_json_2
     }
   end
 end
