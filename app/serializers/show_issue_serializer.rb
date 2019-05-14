@@ -27,11 +27,16 @@ class ShowIssueSerializer < IssueSerializer
         self: { href: "/issues/#{object.id}" },
         creator: object.user.as_json_summary,
     }
+    
+    if object.assigned_user
+      links = links.merge(
+          assigned_user: User.find(object.assigned_user).as_json_summary)
+    end
 
     if current_user
       links = links.merge(
-          vote: { href: "/issues/#{object.id}/vote" },
-          watch: { href: "/issues/#{object.id}/watch" }
+          votes: { href: "/issues/#{object.id}/votes" },
+          watchs: { href: "/issues/#{object.id}/watches" }
       )
     end
 

@@ -18,7 +18,8 @@ class CommentsController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.json { render json: @comment, status: :ok }
+      #format.json { render json: @comment, status: :ok }
+      format.json {render json: @comment, status: :ok, serializer:CommentSerializer}
     end
   end
 
