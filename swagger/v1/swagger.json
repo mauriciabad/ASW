@@ -349,8 +349,8 @@
         "tags": [
           "Issues"
         ],
-        "summary": "Vote or unvote an issue",
-        "description": "Votes or unvotes the issue with ID <b>issueID</b> as the current authenticated user",
+        "summary": "Vote an issue",
+        "description": "Votes the issue with ID <b>issueID</b> as the current authenticated user",
         "security": [
           {
             "apiKey": []
@@ -360,7 +360,7 @@
           {
             "in": "path",
             "name": "issueID",
-            "description": "ID of the issue to vote/unvote",
+            "description": "ID of the issue to vote",
             "required": true,
             "type": "integer"
           }
@@ -392,8 +392,8 @@
         "tags": [
           "Issues"
         ],
-        "summary": "Watch or unwatch an issue",
-        "description": "Watches or unwatches the issue with ID <b>issueID</b> as the current authenticated user",
+        "summary": "Watch an issue",
+        "description": "Watches the issue with ID <b>issueID</b> as the current authenticated user",
         "security": [
           {
             "apiKey": []
@@ -403,7 +403,7 @@
           {
             "in": "path",
             "name": "issueID",
-            "description": "ID of the issue to watch/unwatch",
+            "description": "ID of the issue to watch",
             "required": true,
             "type": "integer"
           }
@@ -881,17 +881,9 @@
           "type": "string",
           "example": "Batman Martinez"
         },
-        "created_at": {
+        "email": {
           "type": "string",
-          "example": "2019-04-11T11:50:53.705Z"
-        },
-        "updated_at": {
-          "type": "string",
-          "example": "2019-04-11T11:50:53.705Z"
-        },
-        "url": {
-          "type": "string",
-          "example": "https://3669a7e7c2ad48b99b3f0a9a96e8c79a.vfs.cloud9.us-east-2.amazonaws.com/users/1.json"
+          "example": "hello@mauriciabad.com"
         }
       }
     },
@@ -963,7 +955,7 @@
             "creator": {
               "$ref": "#/definitions/UserSummary"
             },
-            "assignee": {
+            "assigned_user": {
               "$ref": "#/definitions/UserSummary"
             }
           }
@@ -1170,6 +1162,16 @@
           "type": "string",
           "example": "This is an issue description"
         },
+                "created_at": {
+          "type": "string",
+          "format": "date",
+          "example": "2017-05-07T18:28:01.933Z"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date",
+          "example": "2017-05-07T18:28:01.933Z"
+        },
         "kind": {
           "type": "string",
           "example": "bug"
@@ -1181,16 +1183,6 @@
         "status": {
           "type": "string",
           "example": "new_issue"
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date",
-          "example": "2017-05-07T18:28:01.933Z"
-        },
-        "updated_at": {
-          "type": "string",
-          "format": "date",
-          "example": "2017-05-07T18:28:01.933Z"
         },
         "votes": {
           "type": "integer",
@@ -1226,21 +1218,21 @@
             "assignee": {
               "$ref": "#/definitions/UserSummary"
             },
-            "vote": {
+            "votes": {
               "type": "object",
               "properties": {
                 "href": {
                   "type": "string",
-                  "example": "/issues/1/vote"
+                  "example": "/issues/1/votes"
                 }
               }
             },
-            "watch": {
+            "watches": {
               "type": "object",
               "properties": {
                 "href": {
                   "type": "string",
-                  "example": "/issues/1/watch"
+                  "example": "/issues/1/watches"
                 }
               }
             }
@@ -1268,8 +1260,18 @@
     "Comment": {
       "type": "object",
       "properties": {
-        "body": { "type": "string","example": "Body of the comment"},
-        
+        "id": { 
+          "type": "integer",
+          "example": "0"
+        },
+        "text": { 
+          "type": "string",
+          "example": "Text del comentari"
+        },
+        "issue_id": { 
+          "type": "integer",
+          "example": "1"
+        },
         "created_at": {
           "type": "string",
           "format": "date",
@@ -1288,7 +1290,7 @@
               "properties": {
                 "href": {
                   "type": "string",
-                  "example": "/issues/1/comments/1"
+                  "example": "/comments/1"
                 }
               }
             },
