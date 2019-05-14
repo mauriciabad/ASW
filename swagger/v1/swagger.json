@@ -758,7 +758,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/UserSummary"
+                "$ref": "#/definitions/UserGet"
               }
             }
           },
@@ -796,7 +796,7 @@
           "200": {
             "description": "Returns user info",
             "schema": {
-              "$ref": "#/definitions/UserSummary"
+              "$ref": "#/definitions/UserGet"
             }
           },
           "404": {
@@ -870,6 +870,33 @@
     }
   },
   "definitions": {
+    "UserGet": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": "0"
+        },
+        "name": {
+          "type": "string",
+          "example": "Batman Martinez"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date",
+          "example": "2017-05-07T18:28:01.933Z"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date",
+          "example": "2017-05-07T18:28:01.933Z"
+        },
+        "url": {
+          "type": "string",
+          "example": "https://696dd117c57640839be877b4d7ad7f73.vfs.cloud9.us-east-2.amazonaws.com/users/1.json"
+        }
+      }
+    },
     "UserSummary": {
       "type": "object",
       "properties": {
