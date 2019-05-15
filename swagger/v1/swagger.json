@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
+    "description":"API de l'Issue Tracker del projecte de ASW.<p><b>API KEYS:</b></p><ul><li>oORHIa8XCyDDigpecCcqAGcv</li></ul>",
     "title": "API V1",
     "version": "v1"
   },
@@ -39,7 +40,7 @@
         "description": "Returns the list of all issues in the issue tracker.",
         "security": [
           {
-            "apiKey": []
+            "apiKey": ["oORHIa8XCyDDigpecCcqAGcv"]
           }
         ],
         "consumes": [
