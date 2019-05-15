@@ -185,26 +185,6 @@
           },
           "401": {
             "$ref": "#/responses/UnauthorizedResponse"
-          },
-          "422": {
-            "description": "Missing issue title / Assignee does not exist",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "type": "array",
-                  "items": {
-                    "example": "can't be blank"
-                  }
-                },
-                "assignee_id": {
-                  "type": "array",
-                  "items": {
-                    "example": "Assignee does not exist"
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -327,20 +307,6 @@
           },
           "404": {
             "$ref": "#/responses/IssueNotFound"
-          },
-          "422": {
-            "description": "Assignee does not exist",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "assignee_id": {
-                  "type": "array",
-                  "items": {
-                    "example": "Assignee does not exist"
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -513,20 +479,6 @@
           },
           "404": {
             "$ref": "#/responses/IssueNotFound"
-          },
-          "422": {
-            "description": "Missing comment body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "body": {
-                  "type": "array",
-                  "items": {
-                    "example": "can't be blank"
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -665,20 +617,6 @@
           },
           "404": {
             "$ref": "#/responses/IssueOrCommentNotFound"
-          },
-          "422": {
-            "description": "Body can't be blank",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "body": {
-                  "type": "array",
-                  "items": {
-                    "example": "body can't be blank"
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -1131,12 +1069,6 @@
           "type": "string",
           "description": "Name of the attached file",
           "example": "attachment.txt"
-        },
-        "content": {
-          "type": "string",
-          "format": "byte",
-          "description": "Content of the attached file (encoded in base64)",
-          "example": "data:text/plain;base64,IyBUZXN0IGF0dGFjaGVkIGZpbGUKClRoaXMgaXMgYW4gZXhhbXBsZSB0ZXh0IQ=="
         }
       }
     },
@@ -1147,31 +1079,6 @@
           "type": "string",
           "description": "Name of the attached file",
           "example": "attachment.txt"
-        },
-        "type": {
-          "type": "string",
-          "description": "Content type of the attached file",
-          "example": "text/plain"
-        },
-        "_links": {
-          "type": "object",
-          "properties": {
-            "self": {
-              "type": "object",
-              "properties": {
-                "href": {
-                  "type": "string",
-                  "description": "Reference to the attached file (used in DELETE)",
-                  "example": "/attached_files/22"
-                }
-              }
-            },
-            "url": {
-              "type": "string",
-              "description": "URL of the attached file",
-              "example": "https://s3-us-west-1.amazonaws.com/aswissuetrackerg12b/attached_files/files/000/000/045/original/attachment.txt?1494767460"
-            }
-          }
         }
       }
     },
