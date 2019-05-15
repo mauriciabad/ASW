@@ -1068,7 +1068,32 @@
         "name": {
           "type": "string",
           "description": "Name of the attached file",
-          "example": "attachment.txt"
+          "example": "example.jpg"
+        },
+        "content_type": {
+          "type": "string",
+          "description": "Type of the attached file",
+          "example": "image/jpeg"
+        },
+        "id": {
+          "type": "string",
+          "description": "Id of the attached file",
+          "example": "id"
+        },
+        "byte_size": {
+          "type": "string",
+          "description": "Size of the attached file in bytes",
+          "example": "40430"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Creation date of the attached file",
+          "example": "2019-05-14T17:14:49.358Z"
+        },
+        "url": {
+          "type": "string",
+          "description": "Url of the attached file",
+          "example": "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3d49818eae9a7268880a796cb87b0de7056418ac/example.jpg"
         }
       }
     },
@@ -1078,7 +1103,32 @@
         "name": {
           "type": "string",
           "description": "Name of the attached file",
-          "example": "attachment.txt"
+          "example": "example.jpg"
+        },
+        "content_type": {
+          "type": "string",
+          "description": "Type of the attached file",
+          "example": "image/jpeg"
+        },
+        "id": {
+          "type": "string",
+          "description": "Id of the attached file",
+          "example": "id"
+        },
+        "byte_size": {
+          "type": "string",
+          "description": "Size of the attached file in bytes",
+          "example": "40430"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Creation date of the attached file",
+          "example": "2019-05-14T17:14:49.358Z"
+        },
+        "url": {
+          "type": "string",
+          "description": "Url of the attached file",
+          "example": "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3d49818eae9a7268880a796cb87b0de7056418ac/example.jpg"
         }
       }
     },

@@ -11,17 +11,19 @@ class IssueSerializer < ActiveModel::Serializer
   end
 
   def _embedded
-    {
-        comments: object.comment,
-        attached_file: object.file
-        #attached_file: {
-        #  name: object.file.filename,
-        #  content_type: object.file.content_type,
-        #  id: object.file.id,
-        #  byte_size: object.file.byte_size,
-        #  created_at: object.file.created_at,
-        #  url: Rails.application.routes.url_helpers.rails_blob_path(object.file, only_path: false, host: "localhost:3000")
-        #}
-    }
+    result = { comments: object.comment };
+
+    if object.file.attached? 
+      result[:attached_file] = {
+        name: object.file.filename,
+        content_type: object.file.content_type,
+        id: object.file.id,
+        byte_size: object.file.byte_size,
+        created_at: object.file.created_at,
+        url: Rails.application.routes.url_helpers.rails_blob_path(object.file, only_path: false, host: "localhost:3000")
+      };
+    end
+
+    result;
   end
 end
