@@ -21,6 +21,6 @@ sudo apt-get install imagemagick --fix-missing
 
 ### To test the API
 
-1. Change in /swagger/v1/swagger.json "schemes": "https" to "schemes": "http".
+1. Change in [/swagger/v1/swagger.json](/swagger/v1/swagger.json): `"schemes": "https"` to `"schemes": "http"`.
 2. Run `rails s`
 3. Browse to: [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
