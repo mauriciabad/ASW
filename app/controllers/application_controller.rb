@@ -10,6 +10,11 @@
      rescue ActiveRecord::RecordNotFound
    end 
   
+   before_action :allow_cross_domain_ajax
+    def allow_cross_domain_ajax
+        headers['Access-Control-Allow-Origin'] = '*'
+        headers['Access-Control-Request-Method'] = 'POST, OPTIONS'
+    end
    # before_action :require_login
 
     #def require_login
