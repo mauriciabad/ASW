@@ -36,7 +36,6 @@
             <%= form.label :file %>
             <div>
               <%= form.file_field :file, multiple: false, direct_upload: true, class:"upload-btn-wrapper" %>
-              <%=  @issue.file.attached? ? (image_tag @issue.file.representation(resize: "200x200>"), class:"attatchment") : '' %>
             </div>
                   
             <%= form.hidden_field :status, id: :issue_status, value: :open %>
