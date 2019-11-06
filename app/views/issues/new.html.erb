@@ -20,7 +20,9 @@
             <%= form.text_field :title, id: :issue_title %>
     
             <%= form.label :description %>
-            <div><%= form.text_area :description, id: :issue_description %></div>
+            <div class="wrapper">
+              <%= form.text_area :description, id: :issue_description %>
+            </div>
     
             <%= form.label :kind %>
             <%= form.select :kind, bug: :bug, enhancement: :enhancement, proposal: :proposal, task: :task %>
