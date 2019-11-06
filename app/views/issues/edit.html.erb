@@ -24,7 +24,9 @@
       <%= form.text_field :title, id: :issue_title, value: @issue.title %>
     
       <%= form.label :description %>
-      <%= form.text_area :description, id: :issue_description, value: @issue.description %>
+      <div class="wrapper">
+        <%= form.text_area :description, id: :issue_description, value: @issue.description %>
+      </div>
 
       <%= form.label :kind %>
       <%= form.select :kind, bug: :bug, enhancement: :enhancement, proposal: :proposal, task: :task, :selected => params[@issue.kind] %>
